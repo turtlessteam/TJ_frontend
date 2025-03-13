@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -69,6 +71,10 @@
 }
 
 body {
+  background: var(
+    --TJ-background,
+    linear-gradient(180deg, #fff 0%, #caeded 100%)
+  );
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -93,7 +99,6 @@ a {
 }
 
 .main {
-  background: #fff;
   font-family: "Pretendard";
   letter-spacing: -0.08rem;
   height: 100%;
@@ -144,4 +149,83 @@ a {
 
 .title_container {
   margin-top: 100px;
+}
+
+.bottom_background {
+  display: flex;
+  height: 115px;
+  padding: 37px 13px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+
+  border-radius: 25px;
+  background: #fff;
+}
+
+.btn_containter {
+  width: 140px;
+  height: 47px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #de752d;
+  color: #fff;
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px; /* 122.222% */
+  align-content: center;
+}
+
+.btn_containter_2 {
+  width: 140px;
+  height: 47px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #bababa;
+  color: #fff;
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 22px; /* 122.222% */
+  align-content: center;
+}
+
+.dropdown {
+  display: flex;
+  width: 300px;
+  height: 56px;
+  align-items: center;
+  gap: 190px;
+  flex-shrink: 0;
+  align-self: stretch;
+  border-radius: 10px;
+  background: #201c1d;
+  color: #fff;
+  text-align: left;
+  font-family: Pretendard;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 22px;
+}
+
+select {
+  -webkit-appearance: none; /* for chrome */
+
+  -moz-appearance: none; /*for firefox*/
+
+  appearance: none;
+}
+
+select::-ms-expand {
+  display: none; /*for IE10,11*/
 }
