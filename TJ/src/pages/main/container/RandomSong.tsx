@@ -13,7 +13,7 @@ const categoryMapping: Record<CategoryKey, string> = {
 };
 
 interface RandomSongProps {
-  category?: CategoryKey;
+  category?: CategoryKey | undefined;
   atmos?: string;
 }
 
