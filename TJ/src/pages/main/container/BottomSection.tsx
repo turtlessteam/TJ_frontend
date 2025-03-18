@@ -63,7 +63,7 @@ const BottomSection = ({ onSongSettingsSubmit }: BottomSectionProps) => {
 
   return (
     <div className="bottom_background flex flex-col gap-2 justify-center items-center">
-      <div className="text-sm text-[Pretendard] font-normal">
+      <div className="text-sm font-[Pretendard] font-normal">
         이 곡으로 100점이 나오면 노래 <b>2곡을</b> 충전해드려요 🎉
       </div>
       <div className="flex gap-2">

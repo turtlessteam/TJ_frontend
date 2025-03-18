@@ -1,23 +1,32 @@
 import { useState, useEffect } from "react";
 import Song from "./Song";
 
-type CategoryKey = "발라드" | "밴드" | "힙합" | "ost" | "팝" | "댄스";
+type CategoryKey =
+  | "아이돌"
+  | "발라드"
+  | "POP"
+  | "JPOP"
+  | "국힙"
+  | "외힙"
+  | "밴드"
+  | "인디";
 
 const categoryMapping: Record<CategoryKey, string> = {
+  아이돌: "idol",
   발라드: "ballad",
+  POP: "pop",
+  JPOP: "j-pop",
+  국힙: "k-hiphop",
+  외힙: "hiphop",
   밴드: "band",
-  힙합: "hiphop",
-  ost: "ost",
-  팝: "pop",
-  댄스: "dance",
+  인디: "other",
 };
 
 interface RandomSongProps {
-  category?: CategoryKey | undefined;
-  atmos?: string;
+  category?: CategoryKey[];
 }
 
-export function RandomSong({ category, atmos }: RandomSongProps) {
+export function RandomSong({ category }: RandomSongProps) {
   const [song, setSong] = useState<any>(null);
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey | null>(
     null
@@ -25,10 +34,9 @@ export function RandomSong({ category, atmos }: RandomSongProps) {
 
   useEffect(() => {
     async function fetchSong() {
-      // props로 전달된 category가 있으면 사용, 없으면 랜덤 선택
       let finalCategory: CategoryKey;
-      if (category) {
-        finalCategory = category;
+      if (category && category.length > 0) {
+        finalCategory = category[Math.floor(Math.random() * category.length)];
       } else {
         const keys = Object.keys(categoryMapping) as CategoryKey[];
         finalCategory = keys[Math.floor(Math.random() * keys.length)];
@@ -39,21 +47,9 @@ export function RandomSong({ category, atmos }: RandomSongProps) {
       try {
         const module = await import(`../../../db/${fileName}.json`);
         const data = module.default;
-        let filteredData = data;
-        // atmos가 전달된 경우, 해당 분위기로 필터링
-        if (atmos) {
-          filteredData = data.filter((item: any) => item.atmos === atmos);
-          if (filteredData.length === 0) {
-            console.error(
-              "해당 카테고리에서 주어진 atmos와 일치하는 곡이 없습니다:",
-              atmos
-            );
-            return;
-          }
-        }
-        if (filteredData.length > 0) {
-          const randomSong =
-            filteredData[Math.floor(Math.random() * filteredData.length)];
+
+        if (data.length > 0) {
+          const randomSong = data[Math.floor(Math.random() * data.length)];
           setSong(randomSong);
         } else {
           console.error("해당 카테고리에 곡 데이터가 없습니다:", finalCategory);
@@ -63,16 +59,11 @@ export function RandomSong({ category, atmos }: RandomSongProps) {
       }
     }
     fetchSong();
-  }, [category, atmos]);
+  }, [category]);
 
   if (!song || !selectedCategory) return <div>Loading...</div>;
 
   return (
-    <Song
-      title={song.title}
-      name={song.name}
-      category={selectedCategory}
-      atmos={song.atmos}
-    />
+    <Song title={song.title} name={song.name} category={selectedCategory} />
   );
 }

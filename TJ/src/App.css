@@ -30,7 +30,6 @@
 
 #root {
   width: 100%;
-  padding: 2rem;
   text-align: center;
 }
 
@@ -71,10 +70,7 @@
 }
 
 body {
-  background: var(
-    --TJ-background,
-    linear-gradient(180deg, #fff 0%, #caeded 100%)
-  );
+  background: #de752d;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -92,6 +88,11 @@ body,
 html,
 .main .main_content {
   overscroll-behavior: none !important;
+}
+
+button:focus {
+  outline: 0;
+  border: 0;
 }
 
 a {
@@ -165,38 +166,6 @@ a {
   background: #fff;
 }
 
-.btn_containter {
-  width: 140px;
-  height: 47px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: #de752d;
-  color: #fff;
-  text-align: center;
-  font-family: "Pretendard";
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 22px; /* 122.222% */
-  align-content: center;
-}
-
-.btn_containter_2 {
-  width: 140px;
-  height: 47px;
-  flex-shrink: 0;
-  border-radius: 10px;
-  background: #bababa;
-  color: #fff;
-  text-align: center;
-  font-family: "Pretendard";
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 22px; /* 122.222% */
-  align-content: center;
-}
-
 .dropdown {
   display: flex;
   width: 300px;
@@ -228,4 +197,68 @@ select {
 
 select::-ms-expand {
   display: none; /*for IE10,11*/
+}
+
+.btn_default {
+  display: flex;
+  width: 77px;
+  height: 40px;
+  padding: 6px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 5px;
+  background: #ef9659;
+
+  color: #ffd0d0;
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 22px; /* 169.231% */
+}
+
+.btn_clicked {
+  display: flex;
+  width: 77px;
+  height: 40px;
+  padding: 6px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 5px;
+  background: #fff;
+
+  color: #de752d;
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 22px; /* 169.231% */
+
+  outline: none;
+}
+
+.recommend_btn {
+  display: flex;
+  height: 40px;
+  width: 350px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  align-self: stretch;
+  border-radius: 10px;
+  background: #fff;
+
+  color: #de752d;
+  text-align: center;
+  font-family: "Pretendard";
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 13px; /* 100% */
 }

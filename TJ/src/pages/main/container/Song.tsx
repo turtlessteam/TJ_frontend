@@ -1,22 +1,28 @@
+import MainImg from "./MainImg";
+
 interface songProps {
   title: string;
   name: string;
-  category: string;
-  atmos: string;
 }
 
-const Song = ({ title, name, category, atmos }: songProps) => {
+const Song = ({ title, name }: songProps) => {
+  const imgSrc = `/src/db/img/${title}.webp`;
+
   return (
-    <div className="">
-      <div className="text-[Pretendard] text-black text-4xl font-bold tracking-tight">
-        {title}
+    <div className="w-[100%] h-[146px] bg-[#EF9659] text-left flex align-middle justify-between  items-center">
+      <div className="justify-start  pl-6">
+        <div className="font-[Pretendard] text-white text-xl font-semibold">
+          추천된 음악 🎤
+        </div>
+        <div className="font-[Pretendard] text-white font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[40px]">
+          {title}
+        </div>
+
+        <div className="font-[Pretendard] text-white text-base font-light">
+          {name}
+        </div>
       </div>
-      <div className="text-[Pretendard] text-black text-2xl font-normal tracking-tight">
-        {name}
-      </div>
-      <div className="text-[Pretendard] text-black text-base font-normal tracking-tight">
-        #{category}&nbsp;#{atmos}
-      </div>
+      <MainImg img={imgSrc} />
     </div>
   );
 };
