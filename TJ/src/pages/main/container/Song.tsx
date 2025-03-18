@@ -6,7 +6,7 @@ interface songProps {
 }
 
 const Song = ({ title, name }: songProps) => {
-  const imgSrc = `/src/assets/${title}.webp`;
+  const imgSrc = `/assets/${title}.webp`; // /public 내부의 파일은 /assets/로 접근 가능
 
   return (
     <div className="w-[100%] h-[146px] bg-[#EF9659] text-left flex align-middle justify-between  items-center">
