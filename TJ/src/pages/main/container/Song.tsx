@@ -6,11 +6,11 @@ interface songProps {
 }
 
 const Song = ({ title, name }: songProps) => {
-  const imgSrc = `/src/db/img/${title}.webp`;
+  const imgSrc = `/src/pages/main/container/img/${title}.webp`;
 
   return (
     <div className="w-[100%] h-[146px] bg-[#EF9659] text-left flex align-middle justify-between  items-center">
-      <div className="justify-start  pl-6">
+      <div className="justify-start  pl-[9%]">
         <div className="font-[Pretendard] text-white text-xl font-semibold">
           추천된 음악 🎤
         </div>

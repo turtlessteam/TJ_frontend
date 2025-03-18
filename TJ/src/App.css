@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
+
+font-family: "Pretendard Variable", Pretendard, -apple-system,
+  BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+  "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
+  "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+
 @font-face {
   font-family: Pretendard;
   font-weight: 400;
@@ -245,7 +252,7 @@ select::-ms-expand {
 
 .recommend_btn {
   display: flex;
-  height: 40px;
+  height: 44px;
   width: 350px;
   justify-content: center;
   align-items: center;
@@ -257,7 +264,7 @@ select::-ms-expand {
   color: #de752d;
   text-align: center;
   font-family: "Pretendard";
-  font-size: 13px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 13px; /* 100% */

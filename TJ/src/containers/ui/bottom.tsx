@@ -75,7 +75,7 @@ const Bottom: React.FC<PrimaryButtonProps> = ({ Text, animate }) => {
     padding: "8px",
     left: "50%",
     transform: "translateX(-50%)",
-    backdropFilter: "blur(10px)",
+    backdropFilter: "blur(20px)",
   };
 
   const buttonStyle: React.CSSProperties = {

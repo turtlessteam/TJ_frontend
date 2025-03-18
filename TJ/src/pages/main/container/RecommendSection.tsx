@@ -46,7 +46,7 @@ const RecommendSection = ({ onSongSettingsSubmit }: BottomSectionProps) => {
             "아이돌",
             "발라드",
             "POP",
-            "J-POP",
+            "JPOP",
             "국힙",
             "외힙",
             "밴드",

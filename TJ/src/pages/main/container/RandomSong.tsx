@@ -63,7 +63,5 @@ export function RandomSong({ category }: RandomSongProps) {
 
   if (!song || !selectedCategory) return <div>Loading...</div>;
 
-  return (
-    <Song title={song.title} name={song.name} category={selectedCategory} />
-  );
+  return <Song title={song.title} name={song.name} />;
 }
