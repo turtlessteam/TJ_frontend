@@ -35,6 +35,10 @@ const RecommendSection = ({ onSongSettingsSubmit }: BottomSectionProps) => {
     );
   };
 
+  const handleResetClick = () => {
+    setSelectedButtons([]);
+  };
+
   const handleRecommendClick = () => {
     if (selectedButtons.length === 0) {
       window.location.reload(); // 선택된 버튼이 없으면 새로고침
@@ -92,6 +96,9 @@ const RecommendSection = ({ onSongSettingsSubmit }: BottomSectionProps) => {
         >
           다시 추천받기
         </motion.button>
+        <button onClick={handleResetClick} className="filter_font">
+          필터 초기화하기
+        </button>
       </div>
     </div>
   );
