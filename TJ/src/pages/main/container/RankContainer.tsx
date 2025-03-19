@@ -34,6 +34,8 @@ const RankContainer = () => {
 
   if (songs.length === 0) return <div>Loading...</div>;
 
+  console.log("songs", songs);
+
   return (
     <div className="flex flex-col gap-2.5 justify-center ">
       <div className="text-left text-white font-[Pretendard] text-base font-medium">
@@ -43,7 +45,7 @@ const RankContainer = () => {
         <SongRank
           key={index}
           title={song.title}
-          name={song.artist}
+          name={song.name}
           count={song.playCount}
           award={`${index + 1}위`} // 순위를 1위, 2위, ...로 표시
         />

@@ -1,112 +1,402 @@
 [
   {
-    "title": "恋",
-    "name": "星野源 Gen Hoshino",
-    "atmos": "신나는"
+    "title": "Supernatural",
+    "name": "NewJeans"
   },
   {
-    "title": "God knows...",
-    "name": "平野綾, Aya Hirano",
-    "atmos": "벅차오르는"
-  },
-  {
-    "title": "夜に駆ける",
-    "name": "YOASOBI",
-    "atmos": "신나는"
-  },
-  {
-    "title": "群青",
-    "name": "YOASOBI",
-    "atmos": "벅차오르는"
-  },
-  {
-    "title": "怪物(괴물)",
-    "name": "YOASOBI",
-    "atmos": "벅차오르는"
-  },
-  {
-    "title": "アイドル",
-    "name": "YOASOBI",
-    "atmos": "신나는"
-  },
-  {
-    "title": "Flamingo",
-    "name": "米津玄師, Kenshi Yonezu",
-    "atmos": "신나는"
+    "title": "BETELGEUSE",
+    "name": "Yuuri"
   },
   {
     "title": "Lemon",
-    "name": "米津玄師, Kenshi Yonezu",
-    "atmos": "슬픈"
+    "name": "Yonezu Kenshi"
   },
   {
-    "title": "KICK BACK",
-    "name": "米津玄師, Kenshi Yonezu",
-    "atmos": "신나는"
+    "title": "odoriko",
+    "name": "Vaundy"
   },
   {
-    "title": "LADY",
-    "name": "米津玄師, Kenshi Yonezu",
-    "atmos": "신나는"
+    "title": "晩餐歌",
+    "name": "tuki."
+  },
+  {
+    "title": "Sukidakara",
+    "name": "Yuika"
+  },
+  {
+    "title": "愛を伝えたいだとか / Ai Wo Tsutaetaidatoka (사랑을 전하고 싶다든가)",
+    "name": "aimyon"
+  },
+  {
+    "title": "NIGHT DANCER",
+    "name": "imase"
+  },
+  {
+    "title": "Right Now",
+    "name": "NewJeans"
   },
   {
     "title": "Pretender",
-    "name": "Official髭男dism",
-    "atmos": "잔잔한"
+    "name": "OFFICIAL HIGE DANDISM"
   },
   {
-    "title": "イエスタデイ (예스터데이)",
-    "name": "Official髭男dism",
-    "atmos": "벅차오르는"
+    "title": "LADY",
+    "name": "Yonezu Kenshi"
   },
   {
-    "title": "115万キロのフィルム",
-    "name": "Official髭男dism",
-    "atmos": "신나는"
+    "title": "utatane (선잠)",
+    "name": "Leina"
   },
   {
-    "title": "HELLO",
-    "name": "Official髭男dism",
-    "atmos": "신나는"
+    "title": "Aoi Sangosho",
+    "name": "SEIKO MATSUDA"
   },
   {
-    "title": "ミックスナッツ",
-    "name": "Official髭男dism",
-    "atmos": "신나는"
+    "title": "アイドル (애니메이션 '최애의 아이' 1기 오프닝곡)",
+    "name": "YOASOBI"
   },
   {
-    "title": "Subtitle",
-    "name": "Official髭男dism",
-    "atmos": "신나는"
+    "title": "夜に駆ける",
+    "name": "YOASOBI"
   },
   {
-    "title": "言って｡",
-    "name": "ヨルシカ, Yorushika",
-    "atmos": "신나는"
+    "title": "Marigold",
+    "name": "aimyon"
+  },
+  {
+    "title": "Dried Flower",
+    "name": "Yuuri"
+  },
+  {
+    "title": "サムライハ-ト / Some Like It Hot!! Samurai Heart (애니메이션 '은혼' 엔딩 테마곡)",
+    "name": "SPYAIR"
+  },
+  {
+    "title": "今日だけ I LOVE YOU (Japanese Ver.)",
+    "name": "BOYNEXTDOOR"
+  },
+  {
+    "title": "KICK BACK",
+    "name": "Yonezu Kenshi"
+  },
+  {
+    "title": "Leo",
+    "name": "Yuuri"
+  },
+  {
+    "title": "なんでもないや (movie ver.) / Nandemonaiya (movie ver.)",
+    "name": "RADWIMPS (래드윔프스)"
+  },
+  {
+    "title": "Hot Mess",
+    "name": "aespa"
+  },
+  {
+    "title": "君はロックを聴かない / Kimi Wa Rock Wo Kikanai (너는 Rock을 듣지 않아)",
+    "name": "aimyon"
+  },
+  {
+    "title": "たぶん (아마도, Tabun)",
+    "name": "YOASOBI"
+  },
+  {
+    "title": "NASA",
+    "name": "NCT WISH"
+  },
+  {
+    "title": "Lucky",
+    "name": "RIIZE"
+  },
+  {
+    "title": "真夜中のドア - Stay With Me / Mayonaka no Door - Stay With Me",
+    "name": "松原みき / Miki Matsubara"
+  },
+  {
+    "title": "僕が死のうと思ったのは / Bokuga Shinouto Omottanowa (내가 죽으려고 생각한 것은)",
+    "name": "Nakashima Mika"
+  },
+  {
+    "title": "すずめ / Suzume (feat. Toaka(토아카/十明))",
+    "name": "RADWIMPS (래드윔프스)"
+  },
+  {
+    "title": "Finale. * 애니메이션 [여름을 향한 터널, 이별의 출구] 주제가",
+    "name": "eill"
+  },
+  {
+    "title": "Where Our Blue Is",
+    "name": "Tatsuya Kitani"
+  },
+  {
+    "title": "グッバイバイ / Good bye-bye",
+    "name": "Ai Tomioka(토미오카 아이/冨岡 愛)"
+  },
+  {
+    "title": "Left-Right Confusion",
+    "name": "Yorushika"
+  },
+  {
+    "title": "Wishful Winter",
+    "name": "NCT WISH"
+  },
+  {
+    "title": "Dance Hall",
+    "name": "Mrs. GREEN APPLE"
+  },
+  {
+    "title": "One Voice",
+    "name": "ロクデナシ (Rokudenashi)"
+  },
+  {
+    "title": "GOOD DAY",
+    "name": "BOYNEXTDOOR"
+  },
+  {
+    "title": "Shinunoga E-Wa",
+    "name": "Fujii Kaze"
+  },
+  {
+    "title": "NOW OR NEVER",
+    "name": "ZEROBASEONE (제로베이스원)"
+  },
+  {
+    "title": "Tokyo Flash",
+    "name": "Vaundy"
+  },
+  {
+    "title": "悪魔の子 / Akuma no Ko (악마의 아이)",
+    "name": "ヒグチアイ / Ai Higuchi"
+  },
+  {
+    "title": "Lilac",
+    "name": "Mrs. GREEN APPLE"
+  },
+  {
+    "title": "Sparkle (movie ver.)",
+    "name": "RADWIMPS (래드윔프스)"
+  },
+  {
+    "title": "残酷な天使のテーゼ (잔혹한 천사의 테제) - TV 애니메이션 「신세기 에반게리온」 주제가",
+    "name": "Takahashi Yoko"
+  },
+  {
+    "title": "Pretender",
+    "name": "OFFICIAL HIGE DANDISM"
+  },
+  {
+    "title": "前前前世 (movie ver.) / Zenzenzense (movie ver.)",
+    "name": "RADWIMPS (래드윔프스)"
+  },
+  {
+    "title": "Inferno",
+    "name": "Mrs. GREEN APPLE"
+  },
+  {
+    "title": "恋 / Koi",
+    "name": "Gen Hoshino (호시노 겐/星野 源)"
+  },
+  {
+    "title": "春を告げる / haru wo tsugeru (봄을 알리다)",
+    "name": "yama"
+  },
+  {
+    "title": "Sayonara, Mata Itsuka! - Sayonara",
+    "name": "Yonezu Kenshi"
+  },
+  {
+    "title": "W / X / Y",
+    "name": "Tani Yuuki"
+  },
+  {
+    "title": "Walking with You",
+    "name": "Novelbright"
+  },
+  {
+    "title": "First Love",
+    "name": "Hikaru Utada (우타다 히카루)"
+  },
+  {
+    "title": "貴方の恋人になりたい",
+    "name": "ChoQMay"
+  },
+  {
+    "title": "Bling-Bang-Bang-Born",
+    "name": "Creepy Nuts"
+  },
+  {
+    "title": "Cry Baby * 애니메이션 [도쿄 리벤저스] 오프닝 테마",
+    "name": "OFFICIAL HIGE DANDISM"
+  },
+  {
+    "title": "Overdose",
+    "name": "natori"
+  },
+  {
+    "title": "Harunohi",
+    "name": "aimyon"
+  },
+  {
+    "title": "Orange",
+    "name": "SPYAIR"
+  },
+  {
+    "title": "Kaikai Kitan (애니메이션 '주술회전' 1기 오프닝곡)",
+    "name": "Eve"
+  },
+  {
+    "title": "Ao To Natsu",
+    "name": "Mrs. GREEN APPLE"
+  },
+  {
+    "title": "Kaiju no Hanauta",
+    "name": "Vaundy"
+  },
+  {
+    "title": "Yesterday",
+    "name": "OFFICIAL HIGE DANDISM"
+  },
+  {
+    "title": "Shohikigen",
+    "name": "세븐틴 (SEVENTEEN)"
+  },
+  {
+    "title": "群青",
+    "name": "YOASOBI"
+  },
+  {
+    "title": "Hands Up",
+    "name": "NCT WISH"
+  },
+  {
+    "title": "Sakayume",
+    "name": "King Gnu"
+  },
+  {
+    "title": "Kawaikute gomen (Feat. Chuutan(CV:Saori Hayami))",
+    "name": "Honeyworks"
+  },
+  {
+    "title": "SPECIALZ",
+    "name": "King Gnu"
+  },
+  {
+    "title": "Chikyugi - Spinning Globe",
+    "name": "Yonezu Kenshi"
+  },
+  {
+    "title": "打上花火 / Uchiagehanabi (쏘아올린 불꽃)",
+    "name": "Yonezu Kenshi"
+  },
+  {
+    "title": "FAR AWAY",
+    "name": "NCT WISH"
+  },
+  {
+    "title": "ピースサイン / Peace Sign",
+    "name": "Yonezu Kenshi"
+  },
+  {
+    "title": "怪物 (괴물, Monster / Kaibutsu)",
+    "name": "YOASOBI"
+  },
+  {
+    "title": "WAVE",
+    "name": "IVE (아이브)"
+  },
+  {
+    "title": "Tipsy",
+    "name": "和ぬか"
+  },
+  {
+    "title": "Hai Yorokonde",
+    "name": "Kocchi no Kento"
+  },
+  {
+    "title": "NIGHT DANCER (BIG Naughty Remix)",
+    "name": "imase, BIG Naughty (서동현)"
+  },
+  {
+    "title": "CRUSH",
+    "name": "IVE (아이브)"
+  },
+  {
+    "title": "Matsuri",
+    "name": "Fujii Kaze"
+  },
+  {
+    "title": "115万キロのフィルム (115만 킬로의 필름)",
+    "name": "OFFICIAL HIGE DANDISM"
+  },
+  {
+    "title": "Shutter",
+    "name": "Yuuri"
+  },
+  {
+    "title": "Billimillion",
+    "name": "Yuuri"
+  },
+  {
+    "title": "變わらないもの / Kawaranai Mono (변하지 않는 것) ('시간을 달리는 소녀' 삽입곡)",
+    "name": "Oku Hanako"
+  },
+  {
+    "title": "Kanden",
+    "name": "Yonezu Kenshi"
+  },
+  {
+    "title": "Silhouette",
+    "name": "Kana-Boon"
+  },
+  {
+    "title": "夢燈籠 / Dream lantern",
+    "name": "RADWIMPS (래드윔프스)"
+  },
+  {
+    "title": "CHOO CHOO",
+    "name": "NCT WISH"
+  },
+  {
+    "title": "Touchdown",
+    "name": "NCT WISH"
+  },
+  {
+    "title": "Flower Dance",
+    "name": "DJ Okawari"
+  },
+  {
+    "title": "カナタハルカ / KANATA HALUKA",
+    "name": "RADWIMPS (래드윔프스)"
+  },
+  {
+    "title": "Aitoka Koitoka",
+    "name": "Novelbright"
+  },
+  {
+    "title": "Ghost In A Flower",
+    "name": "Yorushika"
+  },
+  {
+    "title": "P.O.V",
+    "name": "NCT WISH"
+  },
+  {
+    "title": "UCHIDA 1",
+    "name": "GINTA, ODAKEi"
+  },
+  {
+    "title": "サクラミツツキ / Sakuramitsutsuki (벚꽃만월) (애니메이션 '은혼' 오프닝 테마 곡)",
+    "name": "SPYAIR"
+  },
+  {
+    "title": "Dai Zero Kan",
+    "name": "10-FEET"
   },
   {
     "title": "ただ君に晴れ",
-    "name": "ヨルシカ, Yorushika",
-    "atmos": "신나는"
+    "name": "ヨルシカ"
   },
   {
-    "title": "だから僕は音楽を辞めた",
-    "name": "ヨルシカ, Yorushika",
-    "atmos": "신나는"
-  },
-  {
-    "title": "残酷な天使のテーゼ",
-    "name": "高橋 洋子, Yoko Takahashi",
-    "atmos": "벅차오르는"
-  },
-  {
-    "title": "愛を伝えたいだとか",
-    "name": "あいみょん, Aimyon",
-    "atmos": "신나는"
-  },
-  {
-    "title": "マリーゴールド",
-    "name": "あいみょん, Aimyon",
-    "atmos": "신나는"
+    "title": "Be My Next",
+    "name": "RIIZE"
   }
 ]
