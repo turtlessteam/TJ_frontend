@@ -5,7 +5,6 @@ import daonOnboarding from "@/assets/Daon.webp";
 import headphone from "@/assets/headphone.webp";
 
 interface PrimaryButtonProps {
-  Text: string;
   animate?: "highlight" | "initial";
 }
 
