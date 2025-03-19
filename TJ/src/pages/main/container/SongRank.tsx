@@ -3,10 +3,11 @@ interface songRankProps {
   name: string;
   count: string;
   award: string;
-  img: string;
 }
 
-const SongRank = ({ title, name, img, award, count }: songRankProps) => {
+const SongRank = ({ title, name, award, count }: songRankProps) => {
+  const imgSrc = `/assets/${title}.webp`; // /public 내부의 파일은 /assets/로 접근 가능
+
   return (
     <div className="flex justify-between  align-middle h-12 w-[350px] bg-[#EF9659] rounded-[10px] items-center">
       <div className="flex justify-start align-middle items-center">
@@ -28,7 +29,7 @@ const SongRank = ({ title, name, img, award, count }: songRankProps) => {
         </div>
       </div>
       <div className="ml-[100px] pr-5">
-        <img className="w-10 h-10 rouned-[40px]" src={img}></img>
+        <img className="w-10 h-10 rouned-[40px]" src={imgSrc}></img>
       </div>
     </div>
   );

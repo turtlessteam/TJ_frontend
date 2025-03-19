@@ -113,21 +113,24 @@ const Bottom: React.FC<PrimaryButtonProps> = ({ Text, animate }) => {
   };
 
   return (
-    <div className="button_container_style">
+    <div className="button_container_style pt-2">
       <div className="font-[Pretendard] text-sm text-white font-normal">
         이 곡으로 100점이 나오면 노래 <b>두 곡을</b> 충전해드려요{" "}
       </div>
-      <motion.button
-        style={buttonStyle}
-        variants={buttonVariants}
-        initial="initial"
-        animate={animate === "highlight" ? buttonAnimate : "initial"}
-        whileTap={{ scale: 0.95 }}
-        onClick={addKakaoChannel}
-      >
-        <div style={buttonTextStyle}>{Text}</div>
-      </motion.button>
-      <div className="powered_by">
+      <div className="flex justify-center mt-1 mb-1">
+        <motion.button
+          style={buttonStyle}
+          variants={buttonVariants}
+          initial="initial"
+          animate={animate === "highlight" ? buttonAnimate : "initial"}
+          whileTap={{ scale: 0.95 }}
+          onClick={addKakaoChannel}
+        >
+          <div style={buttonTextStyle}>{Text}</div>
+        </motion.button>
+      </div>
+
+      <div className="powered_by pb-2">
         powered by <b>DAON</b>{" "}
       </div>
     </div>

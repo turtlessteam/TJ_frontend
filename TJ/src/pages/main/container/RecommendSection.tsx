@@ -96,7 +96,10 @@ const RecommendSection = ({ onSongSettingsSubmit }: BottomSectionProps) => {
         >
           다시 추천받기
         </motion.button>
-        <button onClick={handleResetClick} className="filter_font">
+        <button
+          onClick={handleResetClick}
+          className="filter_font tracking-tighter"
+        >
           필터 초기화하기
         </button>
       </div>
