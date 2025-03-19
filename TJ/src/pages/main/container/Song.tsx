@@ -8,7 +8,7 @@ interface songProps {
 }
 
 const Song = ({ title, name }: songProps) => {
-  const [imgSrc, setImgSrc] = useState("");
+  const [imgSrc, setImgSrc] = useState<string | undefined>("");
 
   const { data: resp, isLoading, isError, refetch } = useGetImage({ title });
 

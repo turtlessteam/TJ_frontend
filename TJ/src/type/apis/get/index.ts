@@ -1,9 +1,9 @@
 export interface getImageRes {
-  data: getImageDto[];
+  imageUrl: string | undefined;
 }
 
 export interface getImageDto {
-  imgUrl: string;
+  imageUrl: string;
 }
 
 export interface getImageProps {

@@ -1,5 +1,5 @@
 interface songProps {
-  img: string;
+  img: string | undefined;
 }
 
 const Song = ({ img }: songProps) => {
