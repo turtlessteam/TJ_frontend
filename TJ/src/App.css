@@ -6,10 +6,10 @@
 
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 
-font-family: "Pretendard Variable", Pretendard, -apple-system,
-  BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
-  "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
-  "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+font-family: "Pretendard", Pretendard, -apple-system, BlinkMacSystemFont,
+  system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo",
+  "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol", sans-serif;
 
 @font-face {
   font-family: Pretendard;
@@ -301,4 +301,20 @@ select::-ms-expand {
   text-decoration-thickness: auto;
   text-underline-offset: auto;
   text-underline-position: from-font;
+}
+
+.button_container_style {
+  position: fixed;
+  bottom: 0px;
+  padding: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  backdrop-filter: blur(20px);
+}
+
+.powered_by {
+  font-family: Pretendard;
+  font-size: 13px;
+  color: #fff;
+  font-weight: 400;
 }

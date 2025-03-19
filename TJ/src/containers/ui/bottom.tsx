@@ -69,15 +69,6 @@ const Bottom: React.FC<PrimaryButtonProps> = ({ Text, animate }) => {
     };
   }, []);
 
-  const buttonContainerStyle: React.CSSProperties = {
-    position: "fixed",
-    bottom: "0px",
-    padding: "8px",
-    left: "50%",
-    transform: "translateX(-50%)",
-    backdropFilter: "blur(20px)",
-  };
-
   const buttonStyle: React.CSSProperties = {
     display: "flex",
     width: "350px",
@@ -122,7 +113,7 @@ const Bottom: React.FC<PrimaryButtonProps> = ({ Text, animate }) => {
   };
 
   return (
-    <div style={buttonContainerStyle}>
+    <div className="button_container_style">
       <div className="font-[Pretendard] text-sm text-white font-normal">
         이 곡으로 100점이 나오면 노래 <b>두 곡을</b> 충전해드려요{" "}
       </div>
@@ -136,7 +127,7 @@ const Bottom: React.FC<PrimaryButtonProps> = ({ Text, animate }) => {
       >
         <div style={buttonTextStyle}>{Text}</div>
       </motion.button>
-      <div className="font-[Pretendard] text-[13px] text-white font-normal">
+      <div className="powered_by">
         powered by <b>DAON</b>{" "}
       </div>
     </div>
