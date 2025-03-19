@@ -35,7 +35,7 @@ const RankContainer = () => {
   if (songs.length === 0) return <div>Loading...</div>;
 
   return (
-    <div className="flex flex-col gap-2.5 justify-center">
+    <div className="flex flex-col gap-2.5 justify-center ">
       <div className="text-left text-white font-[Pretendard] text-base font-medium">
         지금 <b>리코스타 1호점</b>에서 인기있는 노래
       </div>
