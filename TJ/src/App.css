@@ -97,6 +97,11 @@ html,
   overscroll-behavior: none !important;
 }
 
+body,
+html {
+  font-synthesis: none;
+}
+
 button:focus {
   outline: 0;
   border: 0;
