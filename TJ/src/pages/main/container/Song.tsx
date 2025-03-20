@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import MainImg from "./MainImg";
 import { useGetImage } from "@/hooks/useGetImage";
+import Loading from "@/pages/loading/Loading";
+import Error from "@/pages/Error/Error";
 
 interface songProps {
   title: string;
@@ -22,8 +24,8 @@ const Song = ({ title, name }: songProps) => {
 
   console.log("resp", resp?.imageUrl);
 
-  if (isLoading) return <p>Loading...</p>;
-  if (isError) return <p>Error loading articles</p>;
+  if (isLoading) return <Loading />;
+  if (isError) return <Error />;
 
   return (
     <div className="w-[100%] h-[146px] bg-[#EF9659] text-left flex align-middle justify-between  items-center">

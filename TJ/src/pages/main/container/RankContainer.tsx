@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import SongRank from "./SongRank";
+import Loading from "@/pages/loading/Loading";
 
 const RankContainer = () => {
   const [songs, setSongs] = useState<any[]>([]);
@@ -32,7 +33,7 @@ const RankContainer = () => {
     fetchSongs();
   }, []);
 
-  if (songs.length === 0) return <div>Loading...</div>;
+  if (songs.length === 0) return <p>로딩 중이에요 😅 </p>;
 
   console.log("songs", songs);
 

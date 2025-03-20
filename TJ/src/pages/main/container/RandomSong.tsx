@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Song from "./Song";
+import Loading from "@/pages/loading/Loading";
 
 type CategoryKey =
   | "아이돌"
@@ -61,7 +62,7 @@ export function RandomSong({ category }: RandomSongProps) {
     fetchSong();
   }, [category]);
 
-  if (!song || !selectedCategory) return <div>Loading...</div>;
+  if (!song || !selectedCategory) return <Loading />;
 
   return <Song title={song.title} name={song.name} />;
 }
