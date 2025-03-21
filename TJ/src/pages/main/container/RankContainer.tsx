@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SongRank from "./SongRank";
-import { Dropdown } from "@/components/DropDown";
+import { Dropdown } from "./Dropdown";
 
 const categories = [
   { label: "지금 리코스타 1호점에서 인기있는 노래", file: "top.json" },
@@ -62,9 +62,8 @@ const RankContainer = () => {
             </option>
           ))}
         </select>
-        <div>
-          <Dropdown />
-        </div>
+
+        <Dropdown />
       </div>
       <AnimatePresence mode="wait">
         <motion.div
