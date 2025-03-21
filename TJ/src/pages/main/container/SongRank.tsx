@@ -6,7 +6,9 @@ interface songRankProps {
 }
 
 const SongRank = ({ title, name, award, count }: songRankProps) => {
-  const imgSrc = `/assets/${title}.webp`; // /public 내부의 파일은 /assets/로 접근 가능
+  const imgSrc = `/assets/${title}.webp`; // /public 내부의 파일은 /assets/로 접근 가능\
+
+  console.log("imgSrc", imgSrc);
 
   return (
     <div className="flex justify-between  align-middle h-12 w-[350px] bg-[#EF9659] rounded-[10px] items-center ">

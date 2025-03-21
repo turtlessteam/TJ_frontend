@@ -1,56 +1,91 @@
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import SongRank from "./SongRank";
-import Loading from "@/pages/loading/Loading";
+import { Dropdown } from "@/components/DropDown";
+
+const categories = [
+  { label: "지금 리코스타 1호점에서 인기있는 노래", file: "top.json" },
+  { label: "썸탈때 부르면 좋은 노래", file: "some.json" },
+  { label: "헤어지고 부르는 이별 노래", file: "sad.json" },
+  { label: "막곡으로 부르기 좋은 노래", file: "top.json" },
+];
 
 const RankContainer = () => {
-  const [songs, setSongs] = useState<any[]>([]);
+  const [songs, setSongs] = useState<any[][]>([]);
+  const [index, setIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null); // 사용자가 선택한 인덱스 (없으면 자동)
 
   useEffect(() => {
-    async function fetchSongs() {
+    const fetchSongs = async () => {
       try {
-        const module = await import(`../../../db/top.json`);
-        const data = module.default;
-
-        if (data.length > 0) {
-          // 데이터 개수보다 많은 노래를 요청하면 전체 목록 반환
-          const songCount = Math.min(5, data.length);
-
-          // 중복 없이 랜덤 5곡 선택
-          const selectedSongs = new Set();
-          while (selectedSongs.size < songCount) {
-            const randomIndex = Math.floor(Math.random() * data.length);
-            selectedSongs.add(data[randomIndex]);
-          }
-
-          setSongs(Array.from(selectedSongs));
-        } else {
-          console.error("곡을 찾을 수 없습니다.");
-        }
+        const newSongs = await Promise.all(
+          categories.map(async (category) => {
+            const module = await import(`../../../db/${category.file}`);
+            const data = module.default;
+            return data.sort(() => 0.5 - Math.random()).slice(0, 2);
+          })
+        );
+        setSongs(newSongs);
       } catch (error) {
-        console.error(`JSON 파일(top.json) 로드 실패:`, error);
+        console.error("JSON 파일 로드 실패:", error);
       }
-    }
+    };
+
     fetchSongs();
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % categories.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
   }, []);
 
-  if (songs.length === 0) return <p>로딩 중이에요 😅 </p>;
+  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const newIndex = Number(event.target.value);
+    setSelectedIndex(newIndex);
+  };
 
-  console.log("songs", songs);
+  const displayIndex = selectedIndex !== null ? selectedIndex : index;
+
+  if (songs.length === 0) return <p className="text-white">로딩 중이에요 😅</p>;
 
   return (
-    <div className="flex flex-col gap-2.5 justify-center ">
-      <div className="text-left text-white font-[Pretendard] text-base font-medium">
-        지금 <b>리코스타 1호점</b>에서 인기있는 노래
+    <div className="flex flex-col gap-2.5 justify-center">
+      <div className="text-left text-white font-[Pretendard] text-base font-medium flex justify-between items-center gap-2">
+        <select
+          className="p-1 rounded text-left text-white font-[Pretendard] text-base font-medium flex items-center gap-2"
+          value={selectedIndex !== null ? selectedIndex : index}
+          onChange={handleSelectChange}
+        >
+          {categories.map((category, idx) => (
+            <option key={idx} value={idx}>
+              {category.label}{" "}
+            </option>
+          ))}
+        </select>
+        <div>
+          <Dropdown />
+        </div>
       </div>
-      {songs.map((song, index) => (
-        <SongRank
-          key={index}
-          title={song.title}
-          name={song.name}
-          count={song.playCount}
-          award={`${index + 1}위`} // 순위를 1위, 2위, ...로 표시
-        />
-      ))}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={displayIndex}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col gap-2"
+        >
+          {songs[displayIndex]?.map((song, idx) => (
+            <SongRank
+              key={idx}
+              title={song.title}
+              name={song.name}
+              count={song.playCount}
+              award={`${idx + 1}위`}
+            />
+          ))}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };

@@ -215,6 +215,14 @@ select {
   -moz-appearance: none; /*for firefox*/
 
   appearance: none;
+
+  border: 0;
+  outline: 0;
+}
+
+select:focus {
+  border: 0;
+  outline: 0;
 }
 
 select::-ms-expand {
