@@ -1,10 +1,33 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Dropdown from "@/pages/main/container/Dropdown";
 
-interface PrimaryButtonProps {
+interface BottomSectionProps {
   Text: string;
   animate?: "highlight" | "initial";
+  onSongSettingsSubmit: (categories: CategoryKey[]) => void;
 }
+
+type CategoryKey =
+  | "아이돌"
+  | "발라드"
+  | "POP"
+  | "JPOP"
+  | "국힙"
+  | "외힙"
+  | "밴드"
+  | "인디";
+
+const buttonLabels = [
+  "아이돌",
+  "발라드",
+  "POP",
+  "JPOP",
+  "국힙",
+  "외힙",
+  "밴드",
+  "인디",
+];
 
 declare global {
   interface Window {
@@ -12,46 +35,42 @@ declare global {
   }
 }
 
-const Bottom: React.FC<PrimaryButtonProps> = ({ Text, animate }) => {
+const Bottom: React.FC<BottomSectionProps> = ({
+  Text,
+  animate,
+  onSongSettingsSubmit,
+}: BottomSectionProps) => {
   const [buttonAnimate, setButtonAnimate] = useState<"initial" | "highlight">(
     "initial"
   );
 
   const addKakaoChannel = () => {
     if (window.Kakao) {
-      //카카오 스크립트가 로드된 경우
       const kakao = window.Kakao;
-
-      //인증이 안되어있는 경우 인증한다.
       if (!kakao.isInitialized()) {
         kakao.init("3fb527ff9bc0e22d0fbaf5b4a227da12");
       }
-
       kakao.Channel.addChannel({
-        channelPublicId: "_mxnxcnn", //카카오 채널 ID
+        channelPublicId: "_mxnxcnn", // 카카오 채널 ID
       });
     }
   };
 
   useEffect(() => {
     const script = document.createElement("script");
-    script.src = "https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js"; //script 실행 src
-    script.async = true; //다운완료시 바로 실행
-    document.body.appendChild(script); //태그 생성 (크롬에서 확인 가능)
+    script.src = "https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js";
+    script.async = true;
+    document.body.appendChild(script);
 
-    script.onerror = () => console.error("Failed to load Kakao SDK"); //스크립트 로드 실패 시 에러 메시지 출력
+    script.onerror = () => console.error("Failed to load Kakao SDK");
 
-    // 스크립트 로딩이 완료될 때 수행할 로직 (첫번째 인자인 load event는 정해져있는 것 꺼내씀/ 두번째 인자는 실행시키는 함수)
     script.addEventListener("load", () => {
-      // Kakao SDK 로딩 완료 후 수행할 작업
       window.Kakao.init("3fb527ff9bc0e22d0fbaf5b4a227da12");
     });
 
-    // useEffect 함수의 반환값으로 이벤트 리스너를 제거하는 함수를 반환
     return () => {
       document.body.removeChild(script);
       script.removeEventListener("load", () => {
-        // Kakao SDK 로딩 완료 후 수행할 작업
         window.Kakao.init("3fb527ff9bc0e22d0fbaf5b4a227da12");
       });
     };
@@ -71,12 +90,12 @@ const Bottom: React.FC<PrimaryButtonProps> = ({ Text, animate }) => {
 
   const buttonStyle: React.CSSProperties = {
     display: "flex",
-    width: "350px",
+    width: "170px",
     height: "54.128px",
     justifyContent: "center",
     alignItems: "center",
     gap: "10px",
-    borderRadius: "15px",
+    borderRadius: "10px",
     background: "#fff",
     border: "none",
     outline: "none",
@@ -112,12 +131,47 @@ const Bottom: React.FC<PrimaryButtonProps> = ({ Text, animate }) => {
     },
   };
 
+  // 선택된 버튼(장르) 인덱스를 배열로 관리
+  const [selectedButtons, setSelectedButtons] = useState<number[]>([]);
+
+  const handleDropdownChange = (selectedIndices: number[]) => {
+    setSelectedButtons(selectedIndices);
+  };
+
+  const handleResetClick = () => {
+    setSelectedButtons([]);
+  };
+
+  const handleRecommendClick = () => {
+    const selectedCategories: CategoryKey[] = selectedButtons
+      .map((index) => buttonLabels[index])
+      .filter((category): category is CategoryKey =>
+        [
+          "아이돌",
+          "발라드",
+          "POP",
+          "JPOP",
+          "국힙",
+          "외힙",
+          "밴드",
+          "인디",
+        ].includes(category)
+      );
+    console.log("selectedCategories", selectedCategories);
+    onSongSettingsSubmit(selectedCategories);
+  };
+
   return (
-    <div className="button_container_style pt-2">
-      <div className="font-[Pretendard] text-sm text-white font-normal">
-        이 곡으로 100점이 나오면 노래 <b>두 곡을</b> 충전해드려요{" "}
+    <div className="button_container_style pt-2 ">
+      {/* 드랍다운 영역: 선택된 장르 표시 및 선택/초기화 */}
+      <div className="flex justify-center gap-4 font-[Pretendard] text-sm text-white font-normal mb-2">
+        <Dropdown
+          options={buttonLabels}
+          selected={selectedButtons}
+          onChange={handleDropdownChange}
+        />
       </div>
-      <div className="flex justify-center mt-1 mb-1">
+      <div className="flex justify-center mt-1 mb-1 gap-2">
         <motion.button
           style={buttonStyle}
           variants={buttonVariants}
@@ -128,10 +182,17 @@ const Bottom: React.FC<PrimaryButtonProps> = ({ Text, animate }) => {
         >
           <div style={buttonTextStyle}>{Text}</div>
         </motion.button>
+        <motion.button
+          className="recommend_btn border-none outline-none focus:outline-none focus-visible:outline-none active:outline-none focus:ring-0"
+          onClick={handleRecommendClick}
+          whileTap={{ scale: 0.9 }}
+        >
+          다시 추천받기
+        </motion.button>
       </div>
 
       <div className="powered_by pb-2">
-        powered by <b>DAON</b>{" "}
+        powered by <b>DAON</b>
       </div>
     </div>
   );

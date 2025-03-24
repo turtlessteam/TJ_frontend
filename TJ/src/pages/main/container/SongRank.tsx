@@ -13,6 +13,7 @@ interface songRankProps {
 const SongRank = ({ title, name, award, count }: songRankProps) => {
   const [imgSrc, setImgSrc] = useState<string | undefined>("");
 
+  /*
   const {
     data: resp,
     isLoading,
@@ -34,30 +35,21 @@ const SongRank = ({ title, name, award, count }: songRankProps) => {
   if (isError) return <Error />;
 
   console.log("imgSrc", imgSrc);
+  */
 
   return (
-    <div className="flex justify-between  align-middle h-12 w-[350px] bg-[#EF9659] rounded-[10px] items-center ">
-      <div className="flex justify-start align-middle items-center">
-        <div className="text-left pl-5 ">
-          <div className="font-[Pretendard] text-white text-sm font-semibold text-left w-5">
-            {count}회
-          </div>
-          <div className="font-[Pretendard] -mt-1 text-white text-sm font-normal">
-            {award}
-          </div>
-        </div>
-        <div className="ml-[60px] text-left">
-          <div className="font-[Pretendard] text-white text-base font-bold w-max">
-            {title}
-          </div>
-          <div className="-mt-1 font-[Pretendard] text-white text-sm font-normal">
-            {name}
-          </div>
-        </div>
+    <div className="flex justify-between align-middle h-12 w-[350px] bg-[#EF9659] rounded-[10px] items-center ">
+      <div className="font-[Pretendard] pl-4 text-white text-base font-bold w-max">
+        {title}
       </div>
+      <div className="-mt-1 font-[Pretendard] pr-4 items-center  text-white text-sm font-normal">
+        {name}
+      </div>
+      {/*
       <div className="ml-[70px] pr-5 rounded-2xl">
         <img className="w-10 h-10 rounded-lg" src={imgSrc}></img>
       </div>
+    */}
     </div>
   );
 };

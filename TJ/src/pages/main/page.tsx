@@ -29,17 +29,22 @@ export function Main() {
   return (
     <div className="main ">
       <div className="main_content">
-        <div className="mt-20"></div>
-        <RandomSong category={songSettings.category} />
-        <div className="flex justify-center mt-4">
-          <RecommendSection onSongSettingsSubmit={handleSongSettingsSubmit} />
+        <div className="flex justify-center">
+          <RandomSong category={songSettings.category} />
         </div>
-        <div className="flex justify-center mt-5">
+        <div className="notify_mention mt-6">
+          100점이 나오면 노래 <b>두 곡</b>을 충전해드려요{" "}
+        </div>
+
+        <div className="flex justify-center mt-4">
           {" "}
           <RankContainer />
         </div>
 
-        <Bottom Text={"부르기"} />
+        <Bottom
+          Text={"부르기"}
+          onSongSettingsSubmit={handleSongSettingsSubmit}
+        />
       </div>
       <br></br>
       <br></br>

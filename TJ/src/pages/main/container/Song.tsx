@@ -28,20 +28,26 @@ const Song = ({ title, name }: songProps) => {
   if (isError) return <Error />;
 
   return (
-    <div className="w-[100%] h-[146px] bg-[#EF9659] text-left flex align-middle justify-between  items-center">
-      <div className="justify-start  pl-[9%]">
-        <div className="font-[Pretendard] text-white text-xl font-semibold">
-          추천된 음악 🎤
-        </div>
-        <div className="font-[Pretendard] max-w-[80vw] pr-2 text-white font-bold text-2xl xs:text-xl sm:text-2xl md:text-5xl lg:text-[40px]">
+    <div
+      className="w-full h-[317px] text-center flex justify-center items-center relative"
+      style={{
+        backgroundImage: `url(${imgSrc})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* 배경 블러 효과 */}
+      <div className="absolute inset-0 bg-[rgba(50,50,50,0.5)] backdrop-blur-md"></div>
+
+      {/* 텍스트 컨텐츠 */}
+      <div className="relative z-10">
+        <div className="font-[Pretendard] max-w-[80vw] pr-2 text-white font-bold text-4xl xs:text-xl sm:text-2xl md:text-5xl lg:text-[40px]">
           {title}
         </div>
-
-        <div className="font-[Pretendard] text-white text-base font-light">
+        <div className="font-[Pretendard] text-white text-2xl  font-light">
           {name}
         </div>
       </div>
-      <MainImg img={imgSrc} />
     </div>
   );
 };
