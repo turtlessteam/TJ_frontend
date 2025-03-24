@@ -1,14 +1,10 @@
 const Loading = () => {
   return (
-    <div className="w-[100%] h-[146px] bg-[#EF9659] text-left flex align-middle justify-between  items-center">
-      <div className="justify-center  pl-[9%]">
-        <div className="font-[Pretendard] text-white font-bold text-3xl xs:text- sm:text-2xl md:text-5xl lg:text-[40px]">
-          로딩중이에요 😅
-        </div>
-        <div className="font-[Pretendard] text-white text-xl font-light">
-          잠시만 기다려주세요
-        </div>
-      </div>
+    <div className="w-full h-[317px] flex justify-center items-center relative overflow-hidden bg-[#1e1e1e] animate-backgroundShift">
+      {/* 3개의 블롭 그라데이션 애니메이션 */}
+      <div className="absolute w-[700px] h-[700px] bg-gradient-to-r from-yellow-300 via-orange-400 to-rose-400 opacity-40 rounded-full blur-[120px] animate-blob1 mix-blend-screen" />
+      <div className="absolute w-[600px] h-[600px] bg-gradient-to-r from-orange-300 via-red-400 to-yellow-500 opacity-40 rounded-full blur-[100px] animate-blob2 mix-blend-screen" />
+      <div className="absolute w-[500px] h-[500px] bg-gradient-to-r from-amber-200 via-orange-300 to-red-300 opacity-30 rounded-full blur-[140px] animate-blob3 mix-blend-screen" />
     </div>
   );
 };

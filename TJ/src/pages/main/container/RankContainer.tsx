@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SongRank from "./SongRank";
-import { Dropdown } from "./Dropdown";
 import { DropdownIcon } from "@/components/DropdownIcon";
 
 const categories = [
@@ -77,13 +76,7 @@ const RankContainer = () => {
           className="flex flex-col gap-2"
         >
           {songs[displayIndex]?.map((song, idx) => (
-            <SongRank
-              key={idx}
-              title={song.title}
-              name={song.name}
-              count={song.playCount}
-              award={`${idx + 1}위`}
-            />
+            <SongRank key={idx} title={song.title} name={song.name} />
           ))}
         </motion.div>
       </AnimatePresence>

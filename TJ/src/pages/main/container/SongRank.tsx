@@ -1,17 +1,10 @@
-import { useGetRankImage } from "@/hooks/useGetRankImage";
-import Loading from "@/pages/loading/Loading";
-import Error from "@/pages/Error/Error";
-import { useEffect, useState } from "react";
-
 interface songRankProps {
   title: string;
   name: string;
-  count: string;
-  award: string;
 }
 
-const SongRank = ({ title, name, award, count }: songRankProps) => {
-  const [imgSrc, setImgSrc] = useState<string | undefined>("");
+const SongRank = ({ title, name }: songRankProps) => {
+  //const [imgSrc, setImgSrc] = useState<string | undefined>("");
 
   /*
   const {

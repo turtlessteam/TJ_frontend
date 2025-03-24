@@ -138,10 +138,6 @@ const Bottom: React.FC<BottomSectionProps> = ({
     setSelectedButtons(selectedIndices);
   };
 
-  const handleResetClick = () => {
-    setSelectedButtons([]);
-  };
-
   const handleRecommendClick = () => {
     const selectedCategories: CategoryKey[] = selectedButtons
       .map((index) => buttonLabels[index])

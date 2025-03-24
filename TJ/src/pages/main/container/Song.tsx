@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import MainImg from "./MainImg";
 import { useGetImage } from "@/hooks/useGetImage";
 import Loading from "@/pages/loading/Loading";
 import Error from "@/pages/Error/Error";
@@ -25,7 +24,7 @@ const Song = ({ title, name }: songProps) => {
   console.log("resp", resp?.imageUrl);
 
   if (isLoading) return <Loading />;
-  if (isError) return <Error />;
+  if (isError) return window.location.reload();
 
   return (
     <div
