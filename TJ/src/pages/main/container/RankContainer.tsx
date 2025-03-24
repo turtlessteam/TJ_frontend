@@ -20,8 +20,9 @@ const RankContainer = () => {
       try {
         const newSongs = await Promise.all(
           categories.map(async (category) => {
-            const module = await import(`../../../db/${category.file}`);
-            const data = module.default;
+            const response = await fetch(`/db/${category.file}`);
+            if (!response.ok) throw new Error("파일 로드 실패");
+            const data = await response.json();
             return data.sort(() => 0.5 - Math.random()).slice(0, 2);
           })
         );
