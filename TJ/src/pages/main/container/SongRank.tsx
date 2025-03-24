@@ -1,3 +1,8 @@
+import { useGetRankImage } from "@/hooks/useGetRankImage";
+import Loading from "@/pages/loading/Loading";
+import Error from "@/pages/Error/Error";
+import { useEffect, useState } from "react";
+
 interface songRankProps {
   title: string;
   name: string;
@@ -6,7 +11,27 @@ interface songRankProps {
 }
 
 const SongRank = ({ title, name, award, count }: songRankProps) => {
-  const imgSrc = `/assets/${title}.webp`; // /public 내부의 파일은 /assets/로 접근 가능\
+  const [imgSrc, setImgSrc] = useState<string | undefined>("");
+
+  const {
+    data: resp,
+    isLoading,
+    isError,
+    refetch,
+  } = useGetRankImage({ title });
+
+  useEffect(() => {
+    refetch();
+  }, [refetch]);
+
+  useEffect(() => {
+    setImgSrc(resp?.imageUrl);
+  }, [resp?.imageUrl]);
+
+  console.log("resp", resp?.imageUrl);
+
+  if (isLoading) return <Loading />;
+  if (isError) return <Error />;
 
   console.log("imgSrc", imgSrc);
 
