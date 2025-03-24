@@ -33,7 +33,7 @@ const Song = ({ title, name }: songProps) => {
         <div className="font-[Pretendard] text-white text-xl font-semibold">
           추천된 음악 🎤
         </div>
-        <div className="font-[Pretendard] text-white font-bold text-3xl xs:text- sm:text-2xl md:text-5xl lg:text-[40px]">
+        <div className="font-[Pretendard] max-w-[80vw] pr-2 text-white font-bold text-2xl xs:text-xl sm:text-2xl md:text-5xl lg:text-[40px]">
           {title}
         </div>
 
