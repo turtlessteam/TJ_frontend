@@ -40,27 +40,23 @@ const RecommendSection = ({ onSongSettingsSubmit }: BottomSectionProps) => {
   };
 
   const handleRecommendClick = () => {
-    if (selectedButtons.length === 0) {
-      window.location.reload(); // 선택된 버튼이 없으면 새로고침
-    } else {
-      const selectedCategories: CategoryKey[] = selectedButtons
-        .map((index) => buttonLabels[index])
-        .filter((category): category is CategoryKey =>
-          [
-            "아이돌",
-            "발라드",
-            "POP",
-            "JPOP",
-            "국힙",
-            "외힙",
-            "밴드",
-            "인디",
-          ].includes(category)
-        ); // ✅ CategoryKey만 필터링
+    const selectedCategories: CategoryKey[] = selectedButtons
+      .map((index) => buttonLabels[index])
+      .filter((category): category is CategoryKey =>
+        [
+          "아이돌",
+          "발라드",
+          "POP",
+          "JPOP",
+          "국힙",
+          "외힙",
+          "밴드",
+          "인디",
+        ].includes(category)
+      ); // ✅ CategoryKey만 필터링
 
-      console.log("selectedCategories", selectedCategories);
-      onSongSettingsSubmit(selectedCategories); // ✅ 배열 전체 전달
-    }
+    console.log("selectedCategories", selectedCategories);
+    onSongSettingsSubmit(selectedCategories); // ✅ 배열 전체 전달
   };
 
   return (
