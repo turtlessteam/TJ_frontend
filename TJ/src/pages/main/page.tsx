@@ -2,6 +2,8 @@ import { useState } from "react";
 import { RandomSong } from "./container/RandomSong";
 import Bottom from "@/containers/ui/bottom";
 import RankContainer from "./container/RankContainer";
+import RecommendSection from "./container/RecommendSection";
+import { Ricostar } from "@/components/Ricostar";
 
 type CategoryKey =
   | "아이돌"
@@ -28,6 +30,9 @@ export function Main() {
   return (
     <div className="main ">
       <div className="main_content">
+        <div className="pt-3 pb-3 flex justify-center">
+          <Ricostar />
+        </div>
         <div className="flex justify-center">
           <RandomSong category={songSettings.category} />
         </div>
@@ -35,7 +40,7 @@ export function Main() {
           100점이 나오면 노래 <b>두 곡</b>을 충전해드려요{" "}
         </div>
 
-        <div className="flex justify-center mt-4">
+        <div className="flex justify-center mt-2 mb-24">
           {" "}
           <RankContainer />
         </div>

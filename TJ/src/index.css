@@ -54,7 +54,7 @@
 }
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Pretendard, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -66,6 +66,30 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: Pretendard;
+  font-weight: 400;
+  src: local("Pretendard Regular"),
+    url("/assets/fonts/Pretendard-Regular.woff") format("woff"),
+    url("/assets/fonts/Pretendard-Regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Pretendard;
+  font-weight: 500;
+  src: local("Pretendard Medium"),
+    url("/assets/fonts/Pretendard-Medium.woff") format("woff"),
+    url("/assets/fonts/Pretendard-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Pretendard;
+  font-weight: 700;
+  src: local("Pretendard Bold"),
+    url("/assets/fonts/Pretendard-Bold.woff") format("woff"),
+    url("/assets/fonts/Pretendard-Bold.woff2") format("woff2");
 }
 
 a {

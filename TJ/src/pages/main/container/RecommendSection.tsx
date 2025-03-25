@@ -84,9 +84,9 @@ const RecommendSection = ({ onSongSettingsSubmit }: BottomSectionProps) => {
           </div>
         ))}
       </div>
-      <div className="mt-4">
+      <div className="mt-4 ">
         <motion.button
-          className="recommend_btn border-none outline-none focus:outline-none focus-visible:outline-none active:outline-none focus:ring-0"
+          className="recommend_btn border-none outline-none focus:outline-none focus-visible:outline-none active:outline-none focus:ring-0 "
           onClick={handleRecommendClick}
           whileTap={{ scale: 0.9 }}
         >
@@ -94,7 +94,7 @@ const RecommendSection = ({ onSongSettingsSubmit }: BottomSectionProps) => {
         </motion.button>
         <button
           onClick={handleResetClick}
-          className="filter_font tracking-tighter"
+          className="filter_font tracking-tighter pt-2"
         >
           필터 초기화하기
         </button>

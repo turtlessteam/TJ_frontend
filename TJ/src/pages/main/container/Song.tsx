@@ -28,7 +28,7 @@ const Song = ({ title, name }: songProps) => {
 
   return (
     <div
-      className="w-full h-[317px] text-center flex justify-center items-center relative"
+      className="w-full h-[317px] text-center flex justify-center items-center align-middle relative"
       style={{
         backgroundImage: `url(${imgSrc})`,
         backgroundSize: "cover",
@@ -36,14 +36,14 @@ const Song = ({ title, name }: songProps) => {
       }}
     >
       {/* 배경 블러 효과 */}
-      <div className="absolute inset-0 bg-[rgba(50,50,50,0.5)] backdrop-blur-md"></div>
+      <div className="absolute inset-0 bg-[rgba(50,50,50,0.5)] backdrop-blur-sm"></div>
 
       {/* 텍스트 컨텐츠 */}
       <div className="relative z-10">
-        <div className="font-[Pretendard] max-w-[80vw] pr-2 text-white font-bold text-4xl xs:text-xl sm:text-2xl md:text-5xl lg:text-[40px]">
+        <div className="font-[Noto Sans KR] max-w-[80vw] pr-2 text-white font-bold text-4xl xs:text-xl sm:text-2xl md:text-5xl lg:text-[40px]">
           {title}
         </div>
-        <div className="font-[Pretendard] text-white text-2xl  font-light">
+        <div className="font-[Noto Sans KR] text-white text-2xl  font-light">
           {name}
         </div>
       </div>
