@@ -95,77 +95,79 @@ export function Onboarding({ animate }: PrimaryButtonProps) {
   return (
     <div className="main">
       <div className="main_content">
-        {!second && (
-          <motion.div
-            className="flex justify-center"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <DaonImg />
-          </motion.div>
-        )}
-
-        {second && (
-          <motion.div
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <div className="flex justify-center">
-              <motion.img
-                src={headphone}
-                alt="Headphone"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-              />
-            </div>
+        <div className="flex justify-center items-center place-content-center min-h-[100vh]">
+          {!second && (
             <motion.div
-              className="font-[Pretendard] text-white text-3xl font-bold mt-5"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+              className="flex justify-center"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
             >
-              노래를 추천해드릴게요
+              <DaonImg />
             </motion.div>
-            <motion.div
-              className="font-[Pretendard] text-white text-xl font-medium mt-2"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
-            >
-              100점이 나오면 2곡을 충전해드려요
-            </motion.div>
-          </motion.div>
-        )}
+          )}
 
-        {showBtn && (
-          <motion.div
-            className="button_container_style2 pt-2"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <div className="flex justify-center mt-1 mb-1">
-              <motion.button
-                style={buttonStyle}
-                variants={buttonVariants}
-                initial="initial"
-                animate={animate === "highlight" ? buttonAnimate : "initial"}
-                whileTap={{ scale: 0.95 }}
-                onClick={navigateMain}
+          {second && (
+            <motion.div
+              className="text-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <div className="flex justify-center">
+                <motion.img
+                  src={headphone}
+                  alt="Headphone"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+                />
+              </div>
+              <motion.div
+                className="font-[Pretendard] text-white text-3xl font-bold mt-5"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
               >
-                <div style={buttonTextStyle}>시작하기</div>
-              </motion.button>
-            </div>
+                노래를 추천해드릴게요
+              </motion.div>
+              <motion.div
+                className="font-[Pretendard] text-white text-xl font-medium mt-2"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
+              >
+                100점이 나오면 2곡을 충전해드려요
+              </motion.div>
+            </motion.div>
+          )}
 
-            <div className="powered_by pb-2">
-              powered by <b>DAON</b>{" "}
-            </div>
-          </motion.div>
-        )}
+          {showBtn && (
+            <motion.div
+              className="button_container_style2 pt-2"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <div className="flex justify-center mt-1 mb-1">
+                <motion.button
+                  style={buttonStyle}
+                  variants={buttonVariants}
+                  initial="initial"
+                  animate={animate === "highlight" ? buttonAnimate : "initial"}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={navigateMain}
+                >
+                  <div style={buttonTextStyle}>시작하기</div>
+                </motion.button>
+              </div>
+
+              <div className="powered_by pb-2">
+                powered by <b>DAON</b>{" "}
+              </div>
+            </motion.div>
+          )}
+        </div>
       </div>
     </div>
   );
