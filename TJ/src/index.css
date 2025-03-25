@@ -109,6 +109,10 @@ body {
   min-height: 100vh;
 }
 
+.main_content {
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;

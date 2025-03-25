@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import Dropdown from "@/pages/main/container/Dropdown";
+import GenreSlider from "./genreSlider";
 
 interface BottomSectionProps {
   Text: string;
@@ -18,7 +18,7 @@ type CategoryKey =
   | "밴드"
   | "인디";
 
-const buttonLabels = [
+const buttonLabels: CategoryKey[] = [
   "아이돌",
   "발라드",
   "POP",
@@ -39,10 +39,12 @@ const Bottom: React.FC<BottomSectionProps> = ({
   Text,
   animate,
   onSongSettingsSubmit,
-}: BottomSectionProps) => {
+}) => {
   const [buttonAnimate, setButtonAnimate] = useState<"initial" | "highlight">(
     "initial"
   );
+
+  const [selectedButtons] = useState<number[]>([]);
 
   const addKakaoChannel = () => {
     if (window.Kakao) {
@@ -51,7 +53,7 @@ const Bottom: React.FC<BottomSectionProps> = ({
         kakao.init("3fb527ff9bc0e22d0fbaf5b4a227da12");
       }
       kakao.Channel.addChannel({
-        channelPublicId: "_mxnxcnn", // 카카오 채널 ID
+        channelPublicId: "_mxnxcnn",
       });
     }
   };
@@ -83,103 +85,73 @@ const Bottom: React.FC<BottomSectionProps> = ({
       );
     }, 600);
 
-    return () => {
-      clearInterval(intervalId);
-    };
+    return () => clearInterval(intervalId);
   }, []);
 
-  const buttonStyle: React.CSSProperties = {
-    display: "flex",
-    width: "170px",
-    height: "54.128px",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "10px",
-    borderRadius: "10px",
-    background: "#fff",
-    border: "none",
-    outline: "none",
-    cursor: "pointer",
-  };
-
-  const buttonTextStyle: React.CSSProperties = {
-    color: "#DE752D",
-    textAlign: "center",
-    fontFamily: "Pretendard",
-    fontSize: "20px",
-    fontStyle: "normal",
-    fontWeight: 600,
-    letterSpacing: "-0.68px",
-    whiteSpace: "nowrap",
-  };
-
-  const buttonVariants = {
-    initial: {
-      scale: 1,
-      x: 0,
-      rotate: 0,
-    },
-    highlight: {
-      scale: 1.05,
-      x: [0, -5, 5, -3, 3, 0],
-      rotate: [0, -5, 5, -3, 3, 0],
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 10,
-      },
-    },
-  };
-
-  // 선택된 버튼(장르) 인덱스를 배열로 관리
-  const [selectedButtons, setSelectedButtons] = useState<number[]>([]);
-
-  const handleDropdownChange = (selectedIndices: number[]) => {
-    setSelectedButtons(selectedIndices);
-  };
-
   const handleRecommendClick = () => {
-    const selectedCategories: CategoryKey[] = selectedButtons
-      .map((index) => buttonLabels[index])
-      .filter((category): category is CategoryKey =>
-        [
-          "아이돌",
-          "발라드",
-          "POP",
-          "JPOP",
-          "국힙",
-          "외힙",
-          "밴드",
-          "인디",
-        ].includes(category)
-      );
+    const selectedCategories: CategoryKey[] = selectedButtons.map(
+      (index) => buttonLabels[index]
+    );
     console.log("selectedCategories", selectedCategories);
     onSongSettingsSubmit(selectedCategories);
   };
 
+  const buttonVariants = {
+    initial: { scale: 1 },
+    highlight: {
+      scale: 1.05,
+      x: [0, -5, 5, -3, 3, 0],
+      rotate: [0, -5, 5, -3, 3, 0],
+      transition: { type: "spring", stiffness: 300, damping: 10 },
+    },
+  };
+
   return (
-    <div className="button_container_style pt-2 ">
-      {/* 드랍다운 영역: 선택된 장르 표시 및 선택/초기화 */}
-      <div className="flex justify-center gap-4 font-[Pretendard] text-sm text-white font-normal mb-2">
-        <Dropdown
-          options={buttonLabels}
-          selected={selectedButtons}
-          onChange={handleDropdownChange}
-        />
+    <div className="button_container_style pt-2">
+      <div className="text-white font-[Pretendard] text-base mb-1 text-center mr-48 font-medium">
+        원하는 장르를 선택해주세요
       </div>
-      <div className="flex justify-center mt-1 mb-1 gap-2">
+
+      <div className="mb-4 mx-4">
+        <GenreSlider />
+      </div>
+
+      <div className="flex justify-center gap-2 mt-1 mb-1">
         <motion.button
-          style={buttonStyle}
+          style={{
+            display: "flex",
+            width: "170px",
+            height: "54.128px",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "10px",
+            borderRadius: "10px",
+            background: "#fff",
+            border: "none",
+            outline: "none",
+            cursor: "pointer",
+          }}
           variants={buttonVariants}
           initial="initial"
           animate={animate === "highlight" ? buttonAnimate : "initial"}
           whileTap={{ scale: 0.95 }}
           onClick={addKakaoChannel}
         >
-          <div style={buttonTextStyle}>{Text}</div>
+          <div
+            style={{
+              color: "#DE752D",
+              fontFamily: "Pretendard",
+              fontSize: "20px",
+              fontWeight: 600,
+              letterSpacing: "-0.68px",
+            }}
+          >
+            {Text}
+          </div>
         </motion.button>
+
         <motion.button
-          className="recommend_btn border-none outline-none focus:outline-none focus-visible:outline-none active:outline-none focus:ring-0"
+          className="recommend_btn border-none outline-none focus:outline-none active:outline-none focus:ring-0"
           onClick={handleRecommendClick}
           whileTap={{ scale: 0.9 }}
         >
