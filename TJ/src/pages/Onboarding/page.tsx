@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import daonOnboarding from "@/assets/Daon.webp";
 import headphone from "@/assets/headphone.webp";
+import DaonImg from "./daonimg";
 
 interface PrimaryButtonProps {
   animate?: "highlight" | "initial";
@@ -102,7 +102,7 @@ export function Onboarding({ animate }: PrimaryButtonProps) {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
           >
-            <img src={daonOnboarding} alt="Onboarding" />
+            <DaonImg />
           </motion.div>
         )}
 
