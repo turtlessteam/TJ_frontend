@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { RandomSong } from "./container/RandomSong";
 import Bottom from "@/containers/ui/bottom";
 import RankContainer from "./container/RankContainer";

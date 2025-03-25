@@ -9,6 +9,7 @@ interface BottomSectionProps {
 }
 
 type CategoryKey =
+  | "전체"
   | "아이돌"
   | "발라드"
   | "POP"
@@ -19,6 +20,7 @@ type CategoryKey =
   | "인디";
 
 const buttonLabels: CategoryKey[] = [
+  "전체",
   "아이돌",
   "발라드",
   "POP",
@@ -43,8 +45,7 @@ const Bottom: React.FC<BottomSectionProps> = ({
   const [buttonAnimate, setButtonAnimate] = useState<"initial" | "highlight">(
     "initial"
   );
-
-  const [selectedButtons] = useState<number[]>([]);
+  const [selectedButtons, setSelectedButtons] = useState<number[]>([]);
 
   const addKakaoChannel = () => {
     if (window.Kakao) {
@@ -89,9 +90,11 @@ const Bottom: React.FC<BottomSectionProps> = ({
   }, []);
 
   const handleRecommendClick = () => {
-    const selectedCategories: CategoryKey[] = selectedButtons.map(
-      (index) => buttonLabels[index]
-    );
+    const isAllSelected = selectedButtons.includes(0); // "전체" 선택됨
+    const selectedCategories: CategoryKey[] = isAllSelected
+      ? [] // 전체 선택 시 빈 배열
+      : selectedButtons.map((index) => buttonLabels[index]);
+
     console.log("selectedCategories", selectedCategories);
     onSongSettingsSubmit(selectedCategories);
   };
@@ -113,7 +116,7 @@ const Bottom: React.FC<BottomSectionProps> = ({
       </div>
 
       <div className="mb-4 mx-4">
-        <GenreSlider />
+        <GenreSlider onChange={setSelectedButtons} />
       </div>
 
       <div className="flex justify-center gap-2 mt-1 mb-1">
