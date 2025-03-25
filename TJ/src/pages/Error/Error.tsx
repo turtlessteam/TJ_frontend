@@ -1,4 +1,9 @@
+import { useEffect } from "react";
+
 const Error = () => {
+  useEffect(() => {
+    window.location.reload();
+  }, []);
   return (
     <div className="w-full h-[317px] flex justify-center items-center relative overflow-hidden bg-[#1e1e1e] animate-backgroundShift">
       {/* 그라데이션 블롭 애니메이션 - 오렌지/옐로우 톤 */}
@@ -7,7 +12,7 @@ const Error = () => {
 
       <div className="relative z-10 text-white text-center space-y-3">
         <div className="text-3xl font-bold opacity-60">에러가 발생했어요</div>
-        <div className="text-sm opacity-40">화면을 새로고침해주세요</div>
+        <div className="text-sm opacity-40">화면이 새로고침됩니다</div>
       </div>
     </div>
   );

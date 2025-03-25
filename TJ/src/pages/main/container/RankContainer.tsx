@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SongRank from "./SongRank";
-import { DropdownIcon } from "@/components/DropdownIcon";
+import Dropdown from "./Dropdown"; // DropdownIcon 대신 Dropdown 컴포넌트를 import 합니다.
 
 const categories = [
   { label: "지금 리코스타 1호점에서 인기있는 노래", file: "top.json" },
@@ -13,7 +13,7 @@ const categories = [
 const RankContainer = () => {
   const [songs, setSongs] = useState<any[][]>([]);
   const [index, setIndex] = useState(0);
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null); // 사용자가 선택한 인덱스 (없으면 자동)
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   useEffect(() => {
     const fetchSongs = async () => {
@@ -40,42 +40,35 @@ const RankContainer = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const newIndex = Number(event.target.value);
-    setSelectedIndex(newIndex);
-  };
-
-  const displayIndex = selectedIndex !== null ? selectedIndex : index;
-
-  if (songs.length === 0) return <p className="text-white">로딩 중이에요 😅</p>;
+  // 사용자가 수동으로 선택한 인덱스가 있다면 그 값을, 없으면 자동 인덱스를 사용
+  const currentIndex = selectedIndex !== null ? selectedIndex : index;
 
   return (
-    <div className="flex flex-col gap-2.5 justify-center">
+    <div className="flex flex-col gap-1 justify-center">
       <div className="text-left text-white font-[Pretendard] text-base font-medium flex justify-between items-center gap-2">
-        <select
-          className="p-1 rounded text-left text-white font-[Pretendard] text-base font-medium flex items-center gap-2"
-          value={selectedIndex !== null ? selectedIndex : index}
-          onChange={handleSelectChange}
-        >
-          {categories.map((category, idx) => (
-            <option key={idx} value={idx}>
-              {category.label}{" "}
-            </option>
-          ))}
-        </select>
-
-        <DropdownIcon />
+        <Dropdown
+          options={categories.map((category) => category.label)}
+          selected={[currentIndex]}
+          onChange={(newSelected) => {
+            // Dropdown은 배열로 선택된 인덱스를 전달합니다.
+            if (newSelected.length > 0) {
+              setSelectedIndex(newSelected[0]);
+            } else {
+              setSelectedIndex(null);
+            }
+          }}
+        />
       </div>
       <AnimatePresence mode="wait">
         <motion.div
-          key={displayIndex}
+          key={currentIndex}
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-col gap-2"
+          className="flex flex-col items-center gap-2"
         >
-          {songs[displayIndex]?.map((song, idx) => (
+          {songs[currentIndex]?.map((song, idx) => (
             <SongRank key={idx} title={song.title} name={song.name} />
           ))}
         </motion.div>

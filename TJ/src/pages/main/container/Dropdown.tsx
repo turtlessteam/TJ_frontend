@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 
 interface DropdownProps {
-  options?: string[]; // 옵셔널로 처리 가능
-  selected?: number[]; // 옵셔널로 처리 가능
+  options?: string[];
+  selected?: number[];
   onChange: (selected: number[]) => void;
 }
 
@@ -17,11 +17,9 @@ const Dropdown: React.FC<DropdownProps> = ({
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
   const handleOptionClick = (index: number) => {
-    if (selected.includes(index)) {
-      onChange(selected.filter((i) => i !== index));
-    } else {
-      onChange([...selected, index]);
-    }
+    // 단일 선택을 위해 항상 [index]로 업데이트하고 드롭다운을 닫습니다.
+    onChange([index]);
+    setIsOpen(false);
   };
 
   // 드랍다운 외부 클릭 시 닫기 처리
@@ -43,18 +41,8 @@ const Dropdown: React.FC<DropdownProps> = ({
       ref={dropdownRef}
       className="relative inline-block text-left text-base"
     >
-      <button
-        type="button"
-        onClick={toggleDropdown}
-        className="inline-flex justify-between items-center w-[370px] px-4 py-2 bg-gray-700 text-white rounded-md"
-      >
-        {selected.length > 0
-          ? selected.map((i) => options[i]).join(", ")
-          : "선택된 장르"}
-        <span className="ml-20">&#9662;</span>
-      </button>
       {isOpen && (
-        <div className="absolute mt-2 w-48 bg-white shadow-lg rounded-md z-10 max-h-40 overflow-y-auto">
+        <div className="absolute mt-2 w-[370px] bg-white shadow-lg rounded-md z-10 max-h-30 overflow-y-auto">
           {options.map((option, index) => (
             <div
               key={index}
@@ -68,6 +56,16 @@ const Dropdown: React.FC<DropdownProps> = ({
           ))}
         </div>
       )}
+      <button
+        type="button"
+        onClick={toggleDropdown}
+        className="inline-flex justify-between items-center w-[370px] px-4 py-2 bg-gray-700 text-white rounded-md"
+      >
+        {selected.length > 0
+          ? selected.map((i) => options[i]).join(", ")
+          : "선택된 장르"}
+        <span className="ml-20">&#9662;</span>
+      </button>
     </div>
   );
 };

@@ -24,7 +24,7 @@ const Song = ({ title, name }: songProps) => {
   console.log("resp", resp?.imageUrl);
 
   if (isLoading) return <Loading />;
-  if (isError) return window.location.reload();
+  if (isError) return <Error />;
 
   return (
     <div

@@ -45,12 +45,6 @@ export function Main() {
           onSongSettingsSubmit={handleSongSettingsSubmit}
         />
       </div>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
     </div>
   );
 }
