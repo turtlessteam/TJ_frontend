@@ -31,7 +31,7 @@ const SongRank = ({ title, name }: songRankProps) => {
   */
 
   return (
-    <div className="flex justify-between align-middle h-12 w-[350px] bg-[#EF9659] rounded-[10px] items-center ">
+    <div className="flex justify-between align-middle h-12 w-[340px] bg-[#3F3F3F] rounded-[10px] items-center ">
       <div className="font-[Pretendard] pl-4 text-white text-base font-bold w-max">
         {title}
       </div>

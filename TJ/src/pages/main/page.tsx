@@ -3,8 +3,10 @@ import { RandomSong } from "./container/RandomSong";
 import Bottom from "@/containers/ui/bottom";
 import RankContainer from "./container/RankContainer";
 import { Ricostar } from "@/components/Ricostar";
+import RecommendSectionVer2 from "./container/RecommendSectionVer2";
 
 type CategoryKey =
+  | "전체"
   | "아이돌"
   | "발라드"
   | "POP"
@@ -30,20 +32,19 @@ export function Main() {
     <div className="main ">
       <div
         className="main_content"
-        style={{ background: "#de752d", minHeight: "100dvh" }}
+        style={{ background: "#262626", minHeight: "100dvh" }}
       >
-        <div className="pt-3 pb-3 flex justify-center">
-          <Ricostar />
-        </div>
-
-        <div className="flex justify-center">
+        <div className="flex justify-center rounded-2xl mt-12 ">
           <RandomSong category={songSettings.category} />
         </div>
-        <div className="notify_mention mt-6">
-          100점이 나오면 노래 <b>두 곡</b>을 충전해드려요{" "}
+
+        <div className="mt-9">
+          <RecommendSectionVer2
+            onSongSettingsSubmit={handleSongSettingsSubmit}
+          />
         </div>
 
-        <div className="flex justify-center mt-2">
+        <div className="flex justify-center mt-10">
           {" "}
           <RankContainer />
         </div>
@@ -57,10 +58,7 @@ export function Main() {
         <br></br>
         <br></br>
 
-        <Bottom
-          Text={"부르기"}
-          onSongSettingsSubmit={handleSongSettingsSubmit}
-        />
+        <Bottom Text={"부르기"} />
       </div>
     </div>
   );

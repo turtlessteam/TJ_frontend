@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import GenreSlider from "./genreSlider";
 
 interface BottomSectionProps {
   Text: string;
   animate?: "highlight" | "initial";
-  onSongSettingsSubmit: (categories: CategoryKey[]) => void;
+  // onSongSettingsSubmit: (categories: CategoryKey[]) => void;
 }
 
 type CategoryKey =
@@ -19,6 +18,7 @@ type CategoryKey =
   | "밴드"
   | "인디";
 
+/*
 const buttonLabels: CategoryKey[] = [
   "전체",
   "아이돌",
@@ -30,6 +30,7 @@ const buttonLabels: CategoryKey[] = [
   "밴드",
   "인디",
 ];
+*/
 
 declare global {
   interface Window {
@@ -40,12 +41,13 @@ declare global {
 const Bottom: React.FC<BottomSectionProps> = ({
   Text,
   animate,
-  onSongSettingsSubmit,
+  // onSongSettingsSubmit,
 }) => {
   const [buttonAnimate, setButtonAnimate] = useState<"initial" | "highlight">(
     "initial"
   );
-  const [selectedButtons, setSelectedButtons] = useState<number[]>([]);
+
+  // const [selectedButtons, setSelectedButtons] = useState<number[]>([]);
 
   const addKakaoChannel = () => {
     if (window.Kakao) {
@@ -89,6 +91,8 @@ const Bottom: React.FC<BottomSectionProps> = ({
     return () => clearInterval(intervalId);
   }, []);
 
+  {
+    /* 
   const handleRecommendClick = () => {
     const isAllSelected = selectedButtons.includes(0); // "전체" 선택됨
     const selectedCategories: CategoryKey[] = isAllSelected
@@ -98,7 +102,8 @@ const Bottom: React.FC<BottomSectionProps> = ({
     console.log("selectedCategories", selectedCategories);
     onSongSettingsSubmit(selectedCategories);
   };
-
+*/
+  }
   const buttonVariants = {
     initial: { scale: 1 },
     highlight: {
@@ -111,20 +116,16 @@ const Bottom: React.FC<BottomSectionProps> = ({
 
   return (
     <div className="button_container_style pt-2">
-      <div className="text-white font-[Pretendard] text-base mb-1 text-center mr-48 font-medium">
-        원하는 장르를 선택해주세요
-      </div>
-
-      <div className="mb-4 mx-4">
-        <GenreSlider onChange={setSelectedButtons} />
+      <div className="notify_mention_btm ">
+        100점이 나오면 노래 <b>두 곡</b>을 충전해드려요{" "}
       </div>
 
       <div className="flex justify-center gap-2 mt-1 mb-1">
         <motion.button
           style={{
             display: "flex",
-            width: "170px",
-            height: "54.128px",
+            width: "340px",
+            height: "44px",
             justifyContent: "center",
             alignItems: "center",
             gap: "10px",
@@ -153,6 +154,7 @@ const Bottom: React.FC<BottomSectionProps> = ({
           </div>
         </motion.button>
 
+        {/* 
         <motion.button
           className="recommend_btn border-none outline-none focus:outline-none active:outline-none focus:ring-0"
           onClick={handleRecommendClick}
@@ -161,7 +163,8 @@ const Bottom: React.FC<BottomSectionProps> = ({
           다시 추천받기
         </motion.button>
       </div>
-
+      */}
+      </div>
       <div className="powered_by pb-2">
         powered by <b>DAON</b>
       </div>

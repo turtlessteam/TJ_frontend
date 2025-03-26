@@ -77,7 +77,7 @@ const GenreSlider: React.FC<GenreSliderProps> = ({ onChange }) => {
         <LeftSlideIcon />
       </button>
 
-      <div className="w-[270px]">
+      <div className="w-[260px]">
         <Slider ref={sliderRef} {...sliderSettings}>
           {buttonLabels.map((label, index) => (
             <div key={index} className="flex justify-center">

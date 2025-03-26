@@ -1,28 +1,27 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css");
 
 .daon-img-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .daon-title {
-    color: #FFF;
-    font-family: "Pretendard";
-    font-size: 100px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    letter-spacing: -2px;
-  }
-  
-  .daon-subtitle {
-    color: #FFF;
-    font-family: "Pretendard";
-    font-size: 20px;
-    font-weight: 400;
-    margin-top: -10px; /* 제목과 간격 조절 */
-    opacity: 0.8; /* 부제목 강조도 낮추기 */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.daon-title {
+  color: #ff5e00;
+  font-family: "Pretendard";
+  font-size: 100px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -2px;
+}
+
+.daon-subtitle {
+  color: #fff;
+  font-family: "Pretendard";
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: -10px; /* 제목과 간격 조절 */
+  opacity: 0.8; /* 부제목 강조도 낮추기 */
+}

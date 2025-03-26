@@ -3,6 +3,7 @@ import Song from "./Song";
 import Loading from "@/pages/loading/Loading";
 
 type CategoryKey =
+  | "전체"
   | "아이돌"
   | "발라드"
   | "POP"
@@ -21,6 +22,7 @@ const categoryMapping: Record<CategoryKey, string> = {
   외힙: "hiphop",
   밴드: "band",
   인디: "other",
+  전체: ""
 };
 
 interface RandomSongProps {
