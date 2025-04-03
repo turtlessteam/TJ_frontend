@@ -22,14 +22,20 @@ const categoryMapping: Record<CategoryKey, string> = {
   외힙: "hiphop",
   밴드: "band",
   인디: "other",
-  전체: ""
+  전체: "",
 };
 
 interface RandomSongProps {
   category?: CategoryKey[];
+  onColorChange: (color: string) => void;
+  onImageExtracted: (imageUrl: string) => void; // 추가
 }
 
-export function RandomSong({ category }: RandomSongProps) {
+export function RandomSong({
+  category,
+  onColorChange,
+  onImageExtracted,
+}: RandomSongProps) {
   const [song, setSong] = useState<any>(null);
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey | null>(
     null
@@ -66,5 +72,12 @@ export function RandomSong({ category }: RandomSongProps) {
 
   if (!song || !selectedCategory) return <Loading />;
 
-  return <Song title={song.title} name={song.name} />;
+  return (
+    <Song
+      title={song.title}
+      name={song.name}
+      onColorExtracted={onColorChange}
+      onImageExtracted={onImageExtracted}
+    />
+  );
 }

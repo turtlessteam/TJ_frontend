@@ -29,7 +29,7 @@ export function Ricostar() {
   );
 }
 
-export function RightSlideIcon() {
+export function RightSlideIcon({ color }: any) {
   return (
     <div>
       <svg
@@ -41,7 +41,7 @@ export function RightSlideIcon() {
       >
         <path
           d="M9 5L16 12L9 19"
-          stroke="white"
+          stroke={color}
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -51,7 +51,7 @@ export function RightSlideIcon() {
   );
 }
 
-export function LeftSlideIcon() {
+export function LeftSlideIcon({ color }: any) {
   return (
     <div>
       <svg
@@ -63,7 +63,7 @@ export function LeftSlideIcon() {
       >
         <path
           d="M15 19L8 12L15 5"
-          stroke="white"
+          stroke={color}
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"

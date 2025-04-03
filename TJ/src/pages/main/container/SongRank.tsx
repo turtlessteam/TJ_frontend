@@ -1,9 +1,10 @@
 interface songRankProps {
   title: string;
   name: string;
+  bgColor: string;
 }
 
-const SongRank = ({ title, name }: songRankProps) => {
+const SongRank = ({ title, name, bgColor }: songRankProps) => {
   //const [imgSrc, setImgSrc] = useState<string | undefined>("");
 
   /*
@@ -31,11 +32,14 @@ const SongRank = ({ title, name }: songRankProps) => {
   */
 
   return (
-    <div className="flex justify-between align-middle h-12 w-[340px] bg-[#3F3F3F] rounded-[10px] items-center ">
-      <div className="font-[Pretendard] pl-4 text-white text-base font-bold w-max">
+    <div
+      className="flex justify-between align-middle place-content-center h-12 w-[340px] bg-[#fff] rounded-[10px] items-center"
+      style={{ background: bgColor, color: "#fff" }}
+    >
+      <div className="font-[Pretendard] pl-5 text-base font-bold w-max">
         {title}
       </div>
-      <div className="-mt-1 font-[Pretendard] pr-4 items-center  text-white text-sm font-normal">
+      <div className="-mt-1 font-[Pretendard] pr-5 items-center  align-middle text-sm font-normal">
         {name}
       </div>
       {/*

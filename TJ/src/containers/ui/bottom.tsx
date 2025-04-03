@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import getTextColorBasedOnBg from "@/hooks/getTextColorBasedOnBg";
+import getTextColorWithoutBG from "@/hooks/getTextColorWithoutBG";
+import mixpanel from "mixpanel-browser";
 
 interface BottomSectionProps {
   Text: string;
   animate?: "highlight" | "initial";
+  bgColor?: string;
   // onSongSettingsSubmit: (categories: CategoryKey[]) => void;
 }
-
+/*
 type CategoryKey =
   | "전체"
   | "아이돌"
@@ -17,7 +21,7 @@ type CategoryKey =
   | "외힙"
   | "밴드"
   | "인디";
-
+*/
 /*
 const buttonLabels: CategoryKey[] = [
   "전체",
@@ -41,8 +45,9 @@ declare global {
 const Bottom: React.FC<BottomSectionProps> = ({
   Text,
   animate,
-  // onSongSettingsSubmit,
-}) => {
+  bgColor,
+}: // onSongSettingsSubmit,
+BottomSectionProps) => {
   const [buttonAnimate, setButtonAnimate] = useState<"initial" | "highlight">(
     "initial"
   );
@@ -50,6 +55,8 @@ const Bottom: React.FC<BottomSectionProps> = ({
   // const [selectedButtons, setSelectedButtons] = useState<number[]>([]);
 
   const addKakaoChannel = () => {
+    mixpanel.track("CTA Button Clicked");
+
     if (window.Kakao) {
       const kakao = window.Kakao;
       if (!kakao.isInitialized()) {
@@ -114,9 +121,15 @@ const Bottom: React.FC<BottomSectionProps> = ({
     },
   };
 
+  const textColorBasedBg = getTextColorBasedOnBg(bgColor ?? "#ffffff");
+  const textColorWithoutBg = getTextColorWithoutBG(bgColor ?? "#ffffff");
+
   return (
     <div className="button_container_style pt-2">
-      <div className="notify_mention_btm ">
+      <div
+        className="notify_mention_btm "
+        style={{ color: textColorWithoutBg }}
+      >
         100점이 나오면 노래 <b>두 곡</b>을 충전해드려요{" "}
       </div>
 
@@ -125,11 +138,11 @@ const Bottom: React.FC<BottomSectionProps> = ({
           style={{
             display: "flex",
             width: "340px",
-            height: "44px",
+            height: "54px",
             justifyContent: "center",
             alignItems: "center",
             gap: "10px",
-            borderRadius: "10px",
+            borderRadius: "15px",
             background: "#fff",
             border: "none",
             outline: "none",
@@ -142,13 +155,8 @@ const Bottom: React.FC<BottomSectionProps> = ({
           onClick={addKakaoChannel}
         >
           <div
-            style={{
-              color: "#DE752D",
-              fontFamily: "Pretendard",
-              fontSize: "20px",
-              fontWeight: 600,
-              letterSpacing: "-0.68px",
-            }}
+            className=" font-[Pretendard] text-xl font-semibold"
+            style={{ color: textColorBasedBg }}
           >
             {Text}
           </div>
@@ -165,7 +173,7 @@ const Bottom: React.FC<BottomSectionProps> = ({
       </div>
       */}
       </div>
-      <div className="powered_by pb-2">
+      <div className="powered_by pb-2" style={{ color: textColorWithoutBg }}>
         powered by <b>DAON</b>
       </div>
     </div>

@@ -93,8 +93,36 @@ module.exports = {
           from: { height: "auto", opacity: "1", transform: "translateY(0)" },
           to: { height: "0", opacity: "0", transform: "translateY(-20px)" },
         },
+        blob1: {
+          "0%, 100%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": {
+            transform: "translate(30px, -50px) scale(1.1) rotate(5deg)",
+          },
+          "66%": {
+            transform: "translate(-20px, 40px) scale(0.9) rotate(-3deg)",
+          },
+        },
+        blob2: {
+          "0%, 100%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": {
+            transform: "translate(-40px, 20px) scale(1.05) rotate(-4deg)",
+          },
+          "66%": {
+            transform: "translate(20px, -30px) scale(0.95) rotate(4deg)",
+          },
+        },
+        blob3: {
+          "0%, 100%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": { transform: "translate(50px, 10px) scale(1.1) rotate(3deg)" },
+          "66%": {
+            transform: "translate(-30px, -20px) scale(0.9) rotate(-2deg)",
+          },
+        },
       },
       animation: {
+        blob1: "blob1 14s infinite ease-in-out",
+        blob2: "blob2 18s infinite ease-in-out",
+        blob3: "blob3 16s infinite ease-in-out",
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         sparkle: "sparkle 0.5s ease-in-out",

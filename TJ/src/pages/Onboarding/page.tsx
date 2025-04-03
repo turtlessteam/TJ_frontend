@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import headphone from "@/assets/headphone.webp";
 import DaonImg from "./daonimg";
+import mixpanel from "mixpanel-browser";
 
 interface PrimaryButtonProps {
   animate?: "highlight" | "initial";
@@ -33,7 +34,13 @@ export function Onboarding({ animate }: PrimaryButtonProps) {
     }
   }, [second, navigate]);
 
+  //믹스패널
+  useEffect(() => {
+    mixpanel.track("Onboarding Viewed");
+  }, []);
+
   const navigateMain = () => {
+    mixpanel.track("Navigate to Main");
     navigate("/main");
   };
 
@@ -93,8 +100,8 @@ export function Onboarding({ animate }: PrimaryButtonProps) {
   };
 
   return (
-    <div className="main">
-      <div className="main_content">
+    <div className="main bg-[#262626]">
+      <div className="main_content bg-[#262626]">
         <div className="flex justify-center items-center place-content-center min-h-[100vh]">
           {!second && (
             <motion.div

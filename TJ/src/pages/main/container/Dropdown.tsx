@@ -5,12 +5,14 @@ interface DropdownProps {
   options?: string[];
   selected?: number[];
   onChange: (selected: number[]) => void;
+  color: string;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
   options = [],
   selected = [],
   onChange,
+  color,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -60,13 +62,13 @@ const Dropdown: React.FC<DropdownProps> = ({
       <button
         type="button"
         onClick={toggleDropdown}
-        className="inline-flex justify-between items-center w-[370px] px-4 py-2 bg-gray-700 text-white rounded-md"
+        className="inline-flex justify-between items-center w-[370px] px-4 py-2 rounded-md"
       >
         {selected.length > 0
           ? selected.map((i) => options[i]).join(", ")
           : "선택된 장르"}
         <span className="ml-20">
-          <DropdownIcon />
+          <DropdownIcon color={color} />
         </span>
       </button>
     </div>

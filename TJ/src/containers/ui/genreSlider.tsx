@@ -2,7 +2,9 @@ import { useState, useRef, useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { LeftSlideIcon, RightSlideIcon } from "@/components/Ricostar";
+// import { LeftSlideIcon, RightSlideIcon } from "@/components/Ricostar";
+import getTextColorWithoutBG from "@/hooks/getTextColorWithoutBG";
+import mixpanel from "mixpanel-browser"; // mixpanel import 필요
 
 type CategoryKey =
   | "전체"
@@ -29,14 +31,14 @@ const buttonLabels: CategoryKey[] = [
 
 interface GenreSliderProps {
   onChange: (selectedIndexes: number[]) => void;
+  bgColor: string;
 }
 
-const GenreSlider: React.FC<GenreSliderProps> = ({ onChange }) => {
+const GenreSlider: React.FC<GenreSliderProps> = ({ onChange, bgColor }) => {
   const [centerIndex, setCenterIndex] = useState(0);
   const sliderRef = useRef<any>(null);
 
   useEffect(() => {
-    // 중앙 항목이 선택된 것으로 간주
     onChange(centerIndex === 0 ? [] : [centerIndex]);
   }, [centerIndex, onChange]);
 
@@ -68,21 +70,34 @@ const GenreSlider: React.FC<GenreSliderProps> = ({ onChange }) => {
     return "opacity-10 scale-90 pointer-events-none z-0";
   };
 
+  const handleSliderClicked = (index: number) => {
+    mixpanel.track("Slider Selected");
+    sliderRef.current?.slickGoTo(index);
+  };
+
+  const textColor = getTextColorWithoutBG(bgColor);
+
   return (
     <div className="flex items-center justify-center gap-2">
+      {/* 
       <button
         onClick={() => sliderRef.current?.slickPrev()}
-        className="text-white text-2xl font-bold px-2"
+        className=" text-2xl font-bold px-2"
+        style={{ color: textColor }}
       >
-        <LeftSlideIcon />
+        <LeftSlideIcon color={textColor} />
       </button>
-
-      <div className="w-[260px]">
+      */}
+      <div className="w-[320px]">
         <Slider ref={sliderRef} {...sliderSettings}>
           {buttonLabels.map((label, index) => (
             <div key={index} className="flex justify-center">
               <button
-                disabled
+                style={{
+                  color: textColor,
+                  fontSize: index === centerIndex ? "22px" : "16px",
+                }}
+                onClick={() => handleSliderClicked(index)}
                 className={`w-14 h-10 rounded-full font-semibold transition-all duration-300 items-center place-content-center m-0
                 ${
                   index === centerIndex
@@ -91,9 +106,6 @@ const GenreSlider: React.FC<GenreSliderProps> = ({ onChange }) => {
                 }
                 ${getSlideStyle(index)}
               `}
-                style={{
-                  fontSize: index === centerIndex ? "22px" : "16px",
-                }}
               >
                 {label}
               </button>
@@ -101,13 +113,14 @@ const GenreSlider: React.FC<GenreSliderProps> = ({ onChange }) => {
           ))}
         </Slider>
       </div>
-
+      {/*
       <button
         onClick={() => sliderRef.current?.slickNext()}
         className="text-white text-2xl font-bold px-2"
       >
-        <RightSlideIcon />
+        <RightSlideIcon color={textColor} />
       </button>
+       */}
     </div>
   );
 };

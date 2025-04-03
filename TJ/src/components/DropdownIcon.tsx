@@ -1,4 +1,4 @@
-export function DropdownIcon() {
+export function DropdownIcon({ color }: any) {
   return (
     <div>
       <svg
@@ -10,7 +10,7 @@ export function DropdownIcon() {
       >
         <path
           d="M20 12.5L15 17.5L10 12.5"
-          stroke="white"
+          stroke={color}
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
