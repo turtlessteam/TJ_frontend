@@ -347,11 +347,25 @@ select::-ms-expand {
 
 .button_container_style {
   position: fixed;
-  bottom: 0px;
+  bottom: 0;
   width: 100vw;
   left: 50%;
   transform: translateX(-50%);
-  backdrop-filter: blur(20px);
+  /* 아래에서 위로 약간의 그라데이션 처리하여 자연스럽게 배경과 어우러지게 함 */
+  background: linear-gradient(
+    to top,
+    rgba(50, 50, 50, 0.7),
+    rgba(50, 50, 50, 0.4)
+  );
+  /* 비교적 강한 블러 대신 약간 부드러운 효과 */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* 내부 패딩으로 요소들이 살짝 띄워지도록 함 */
+  padding: 12px 0;
+  /* 아주 얇은 테두리로 구분되지만 눈에 띄지 않도록 설정 */
+  border-top: 0.5px solid rgba(255, 255, 255, 0.1);
+  /* 상단에 가볍게 그림자 효과를 주어 자연스러운 분리감을 부여 */
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .button_container_style2 {

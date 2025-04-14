@@ -81,7 +81,7 @@ const Song = ({
         alt="song-cover"
       />
 
-      <div className="absolute rounded-4xl inset-0 bg-[rgba(50,50,50,0.5)] backdrop-blur-[2px]"></div>
+      <div className="absolute rounded-4xl inset-0 bg-[rgba(50,50,50,0.5)] "></div>
 
       <div className="relative z-10 rounded-4xl ">
         <div className="font-[Pretendard] max-w-[80vw] pr-2 text-white font-bold text-xl xs:text-xl sm:text-xl md:text-xl lg:text-xl xl:text-xl">

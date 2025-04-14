@@ -33,7 +33,7 @@ const queryClient = new QueryClient({
 });
 
 // Mixpanel 초기화 (최초 1회만 실행)
-mixpanel.init("2a55c684e4f33dc4db2be4cd973ef8b3", {
+mixpanel.init("df80dc57230e135aa2c0eb863aaccf58", {
   debug: true,
   track_pageview: true,
   persistence: "localStorage",

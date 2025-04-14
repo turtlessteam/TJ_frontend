@@ -4,6 +4,7 @@ import Bottom from "@/containers/ui/bottom";
 import RankContainer from "./container/RankContainer";
 import RecommendSectionVer2 from "./container/RecommendSectionVer2";
 import { motion } from "framer-motion";
+import mixpanel from "mixpanel-browser";
 
 // 밝은 색 판단 유틸
 function isLightColor(hex: string): boolean {
@@ -39,6 +40,11 @@ export function Main() {
     setSongSettings({ category });
   };
 
+  //믹스패널
+  useEffect(() => {
+    mixpanel.track("Landing Viewed");
+  }, []);
+
   useEffect(() => {
     setIsBright(isLightColor(bgColor));
 
@@ -72,7 +78,7 @@ export function Main() {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat", // ✅ 반복 제거
 
-        boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+        boxShadow: "0 4px 100px rgba(0, 0, 0, 1)",
       }}
     >
       <motion.div

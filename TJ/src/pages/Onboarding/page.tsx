@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import headphone from "@/assets/headphone.webp";
-import DaonImg from "./daonimg";
 import mixpanel from "mixpanel-browser";
 
 interface PrimaryButtonProps {
@@ -13,26 +12,16 @@ export function Onboarding({ animate }: PrimaryButtonProps) {
   const [buttonAnimate, setButtonAnimate] = useState<"initial" | "highlight">(
     "initial"
   );
-  const [second, setSecond] = useState(false);
   const [showBtn, setShowBtn] = useState(false);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setSecond(true);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (second) {
-      const btnTimer = setTimeout(() => {
-        setShowBtn(true);
-      }, 3000);
-      return () => clearTimeout(btnTimer);
-    }
-  }, [second, navigate]);
+    const btnTimer = setTimeout(() => {
+      setShowBtn(true);
+    }, 1500);
+    return () => clearTimeout(btnTimer);
+  }, [navigate]);
 
   //믹스패널
   useEffect(() => {
@@ -103,51 +92,38 @@ export function Onboarding({ animate }: PrimaryButtonProps) {
     <div className="main bg-[#262626]">
       <div className="main_content bg-[#262626]">
         <div className="flex justify-center items-center place-content-center min-h-[100vh]">
-          {!second && (
+          <motion.div
+            className="text-center"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <div className="flex justify-center">
+              <motion.img
+                src={headphone}
+                alt="Headphone"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+              />
+            </div>
             <motion.div
-              className="flex justify-center"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-            >
-              <DaonImg />
-            </motion.div>
-          )}
-
-          {second && (
-            <motion.div
-              className="text-center"
-              initial={{ opacity: 0, y: 20 }}
+              className="font-[Pretendard] text-white text-3xl font-bold mt-5"
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: "easeOut" }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
             >
-              <div className="flex justify-center">
-                <motion.img
-                  src={headphone}
-                  alt="Headphone"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-                />
-              </div>
-              <motion.div
-                className="font-[Pretendard] text-white text-3xl font-bold mt-5"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-              >
-                노래를 추천해드릴게요
-              </motion.div>
-              <motion.div
-                className="font-[Pretendard] text-white text-xl font-medium mt-2"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
-              >
-                100점이 나오면 2곡을 충전해드려요
-              </motion.div>
+              노래를 추천해드릴게요
             </motion.div>
-          )}
+            <motion.div
+              className="font-[Pretendard] text-white text-xl font-medium mt-2"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.7 }}
+            >
+              100점이 나오면 2곡을 충전해드려요
+            </motion.div>
+          </motion.div>
 
           {showBtn && (
             <motion.div
@@ -169,7 +145,7 @@ export function Onboarding({ animate }: PrimaryButtonProps) {
                 </motion.button>
               </div>
 
-              <div className="powered_by pb-2">
+              <div className="powered_by pb-2 text-white">
                 powered by <b>DAON</b>{" "}
               </div>
             </motion.div>
