@@ -1,10 +1,10 @@
-import { useState, useEffect } from "react";
-import { RandomSong } from "./container/RandomSong";
-import Bottom from "@/containers/ui/bottom";
-import RankContainer from "./container/RankContainer";
-import RecommendSectionVer2 from "./container/RecommendSectionVer2";
-import { motion } from "framer-motion";
-import mixpanel from "mixpanel-browser";
+import { useState, useEffect } from 'react';
+import { RandomSong } from './container/RandomSong';
+//import Bottom from "@/containers/ui/bottom";
+import RankContainer from './container/RankContainer';
+import RecommendSectionVer2 from './container/RecommendSectionVer2';
+import { motion } from 'framer-motion';
+import mixpanel from 'mixpanel-browser';
 
 // 밝은 색 판단 유틸
 function isLightColor(hex: string): boolean {
@@ -16,24 +16,24 @@ function isLightColor(hex: string): boolean {
 }
 
 type CategoryKey =
-  | "전체"
-  | "아이돌"
-  | "발라드"
-  | "POP"
-  | "JPOP"
-  | "국힙"
-  | "외힙"
-  | "밴드"
-  | "인디";
+  | '전체'
+  | '아이돌'
+  | '발라드'
+  | 'POP'
+  | 'JPOP'
+  | '국힙'
+  | '외힙'
+  | '밴드'
+  | '인디';
 
 export function Main() {
   const [songSettings, setSongSettings] = useState<{ category: CategoryKey[] }>(
     {
-      category: ["아이돌"],
+      category: ['아이돌'],
     }
   );
-  const [bgColor, setBgColor] = useState("#262626");
-  const [bgImage, setBgImage] = useState(""); // 이미지 URL 상태 추가
+  const [bgColor, setBgColor] = useState('#262626');
+  const [bgImage, setBgImage] = useState(''); // 이미지 URL 상태 추가
   const [isBright, setIsBright] = useState(false);
 
   const handleSongSettingsSubmit = (category: CategoryKey[]) => {
@@ -42,7 +42,7 @@ export function Main() {
 
   //믹스패널
   useEffect(() => {
-    mixpanel.track("Landing Viewed");
+    mixpanel.track('Landing Viewed');
   }, []);
 
   useEffect(() => {
@@ -60,10 +60,10 @@ export function Main() {
     const b2 = darken(b);
 
     const gradient = `linear-gradient(to bottom, ${bgColor}, rgb(${r2}, ${g2}, ${b2}))`;
-    document.documentElement.style.setProperty("--bg-main", gradient);
+    document.documentElement.style.setProperty('--bg-main', gradient);
   }, [bgColor]);
 
-  console.log("bg", bgImage);
+  console.log('bg', bgImage);
 
   return (
     <motion.div
@@ -71,25 +71,25 @@ export function Main() {
       animate={`url(${bgImage})`}
       transition={{ duration: 1.5 }}
       style={{
-        minHeight: "100dvh",
+        minHeight: '100dvh',
 
         backgroundImage: `url(${bgImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat", // ✅ 반복 제거
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat', // ✅ 반복 제거
 
-        boxShadow: "0 4px 100px rgba(0, 0, 0, 1)",
+        boxShadow: '0 4px 100px rgba(0, 0, 0, 1)',
       }}
     >
       <motion.div
         className="main_content"
         animate={`url(${bgImage})`}
         style={{
-          minWidth: "100vw",
-          backgroundColor: "rgba(50, 50, 50, 0.50)", // ✅ 글래스모피즘 배경
-          backdropFilter: "blur(50px)",
-          WebkitBackdropFilter: "blur(12px)",
-          backgroundRepeat: "no-repeat", // ✅ 반복 제거
+          minWidth: '100vw',
+          backgroundColor: 'rgba(50, 50, 50, 0.50)', // ✅ 글래스모피즘 배경
+          backdropFilter: 'blur(50px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          backgroundRepeat: 'no-repeat', // ✅ 반복 제거
         }}
       >
         <div className="flex justify-center rounded-4xl pt-10">
@@ -117,7 +117,7 @@ export function Main() {
         <br></br>
         <br></br>
       </motion.div>
-      <Bottom Text={"부르기"} bgColor={bgColor} />
+      {/* <Bottom Text={"부르기"} bgColor={bgColor} /> */}
     </motion.div>
   );
 }
